@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import "./NavBar.css";
 function Navbar() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const handleSwitch = () => {
     console.log(isDark);
     setIsDark(!isDark);
@@ -10,28 +11,46 @@ function Navbar() {
     <div
       className={
         isDark
-          ? "container-fluid justify-content-center align-items-center bg-dark text-white p-2"
-          : "container-fluid justify-content-center align-items-center bg-light text-dark p-2"
+          ? "container-xxl text-white p-2 darktheme"
+          : "container-xxl text-dark p-2 lightheme"
       }
     >
-      <div className="row">
-        <div className="col-sm-4">Logo And Heading</div>
-        <div className="col-sm-6 d-flex justify-content-end">
-          <button className="btn btn-primary m-1">Login</button>
-          <button className="btn btn-primary m-1">Register</button>
+      <div className="row justify-content-center">
+        <div className="col col-sm-6">
+          <p className="fs-4 fw-bold logostyle">Hotels.com</p>
         </div>
-        <div className="col-sm-2 form-check form-switch d-flex justify-content-end mt-1">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            role="switch"
-            id="flexSwitchCheckDefault"
-            onChange={handleSwitch}
-            checked={isDark}
-          />
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-            Dark Mode
-          </label>
+        <div className="col col-sm-4 align-items-end">
+          <div className="row">
+            <div className="col">
+              <button
+                className={isDark ? "btn btn-light m-1" : "btn btn-dark m-1"}
+              >
+                SignIn
+              </button>
+              <button
+                className={isDark ? "btn btn-light m-1" : "btn btn-dark m-1"}
+              >
+                Register
+              </button>
+            </div>
+
+            <div className="col form-check form-switch align-items-end mt-1">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onChange={handleSwitch}
+                checked={isDark}
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Dark Mode
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
