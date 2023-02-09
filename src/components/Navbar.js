@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import Home from "../pages/Home";
 import "./NavBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
   const [isDark, setIsDark] = useState(true);
   const handleSwitch = () => {
-    console.log(isDark);
-    setIsDark(!isDark);
+    setIsDark((val) => !isDark);
   };
   return (
     <div
@@ -15,12 +17,12 @@ function Navbar() {
           : "container-xxl text-dark p-2 lightheme"
       }
     >
-      <div className="row justify-content-center">
+      <div className="row justify-content-center my-2 ">
         <div className="col col-sm-6">
           <p className="fs-4 fw-bold logostyle">Hotels.com</p>
         </div>
         <div className="col col-sm-4 align-items-end">
-          <div className="row">
+          <div className="row gx-5">
             <div className="col">
               <button
                 className={isDark ? "btn btn-light m-1" : "btn btn-dark m-1"}
@@ -47,11 +49,20 @@ function Navbar() {
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                Dark Mode
+                {isDark ? (
+                  <FontAwesomeIcon icon={faMoon} />
+                ) : (
+                  <FontAwesomeIcon icon={faSun} />
+                )}
               </label>
             </div>
           </div>
         </div>
+      </div>
+      <Home isDark={isDark} />
+      <div className="mt-5 ms-sm-5 p-md-5">
+        <h1>Find your next stay</h1>
+        <h4>Search low prices on hotels, homes and much more...</h4>
       </div>
     </div>
   );

@@ -1,0 +1,11 @@
+.fonts__home > div {
+  margin: auto;
+  padding: 5px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.fonts__home > div:hover {
+  background-color: #63acd9;
+  border-radius: 10px;
+}
