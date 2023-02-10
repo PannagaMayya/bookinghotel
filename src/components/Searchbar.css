@@ -1,0 +1,29 @@
+.searchbar__inputs {
+  border: 4px solid orange;
+  border-collapse: collapse;
+  padding: 0.4em;
+  background-color: white;
+}
+.searchbar__inputs > * {
+  margin: 0.3em;
+}
+.overlap {
+  transform: translateY(-30px);
+}
+@media only screen and (max-width: 768px) {
+  .overlap {
+    transform: translateY(-10px);
+  }
+}
+
+.search__button {
+  display: flex;
+  background-color: #3e45a1;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  justify-content: center;
+}
+.search__button:hover {
+  background-color: #242a7b;
+}

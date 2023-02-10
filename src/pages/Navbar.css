@@ -1,0 +1,13 @@
+.fonts__navbar > div {
+  margin: auto;
+  padding: 8px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.fonts__navbar > div:hover,
+.current_page {
+  background-color: #63acd9;
+  border-radius: 1.5em;
+  outline: 0.2em solid #719bb5;
+}

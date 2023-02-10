@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Searchbar from "./components/Searchbar";
 function App() {
   return (
     <BrowserRouter>
@@ -10,7 +11,8 @@ function App() {
           path="/"
           element={
             <>
-              <Navbar />
+              <Header />
+              <Searchbar />
             </>
           }
         ></Route>
