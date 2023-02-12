@@ -4,6 +4,7 @@ import Navbar from "../pages/Navbar";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+
 function Header() {
   const [isDark, setIsDark] = useState(true);
   const handleSwitch = () => {
