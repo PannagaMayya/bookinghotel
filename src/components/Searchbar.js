@@ -1,4 +1,5 @@
 import React from "react";
+import PersonOptions from "./PersonOptions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Searchbar.css";
 import { addDays } from "date-fns";
@@ -13,7 +14,7 @@ function Searchbar() {
   const [state, setState] = useState([
     {
       startDate: new Date(),
-      endDate: addDays(new Date(), 7),
+      endDate: addDays(new Date(), 1),
       key: "selection",
     },
   ]);
@@ -21,6 +22,20 @@ function Searchbar() {
     startDate: null,
     endDate: null,
   });
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+  const handleAdult = (e) => {
+    setOptions((obj) => ({ ...obj, adult: obj.adult + e }));
+  };
+  const handleChildren = (e) => {
+    setOptions((obj) => ({ ...obj, children: obj.children + e }));
+  };
+  const handleRoom = (e) => {
+    setOptions((obj) => ({ ...obj, room: obj.room + e }));
+  };
   const setDate = () => {
     console.log(state[0].startDate, state[0].endDate);
     setActualDate({
@@ -29,8 +44,8 @@ function Searchbar() {
     });
   };
   return (
-    <>
-      <div className="z-index-4 d-flex flex-column flex-md-row justify-content-center mx-sm-5 overlap">
+    <div className="container-lg">
+      <div className="z-index-4 d-flex flex-column flex-md-row justify-content-center overlap">
         <div className="input-group align-items-center searchbar__inputs">
           <FontAwesomeIcon icon={faBed} className="input-group-text" />
           <input
@@ -41,7 +56,7 @@ function Searchbar() {
         </div>
         <div className="w-auto text-nowrap input-group searchbar__inputs">
           <button
-            class="btn btn-outline"
+            className="btn btn-outline w-100"
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#search_date"
@@ -57,20 +72,38 @@ function Searchbar() {
             </small>
           </button>
         </div>
-        <div className="w-auto text-nowrap input-group searchbar__inputs">
+        <div className="w-auto text-nowrap input-group searchbar__inputs dropdown show">
           <button
-            class="btn btn-outline"
+            class="btn btn-outline w-100 dropdown-toggle"
             type="button"
-            id="search_user_details"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            data-bs-target="#person__option"
+            aria-expanded="false"
           >
-            <FontAwesomeIcon icon={faUser} />
-            <small> 2 adults 0 Children 1 Room</small>
+            <FontAwesomeIcon icon={faUser} style={{ marginRight: "5px" }} />
+            <small>
+              {options.adult +
+                (options.adult === 1 ? "  adult  •  " : "  adults  •  ") +
+                options.children +
+                (options.children === 1
+                  ? "  Child   •  "
+                  : "  Children   •  ") +
+                options.room +
+                (options.room === 1 ? "  Room" : "  Rooms")}
+            </small>
           </button>
+          <PersonOptions
+            handleAdult={handleAdult}
+            handleChildren={handleChildren}
+            handleRoom={handleRoom}
+          />
         </div>
         <div className="d-flex align-self-stretch align-items-center searchbar__inputs search__button">
           <span>Search</span>
         </div>
       </div>
+
       <div class="modal" id="search_date" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
@@ -109,7 +142,7 @@ function Searchbar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

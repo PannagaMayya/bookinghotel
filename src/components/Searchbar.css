@@ -30,6 +30,7 @@
   font-weight: 500;
   cursor: pointer;
   justify-content: center;
+  min-width: 12%;
 }
 .search__button:hover {
   background-color: #242a7b;
