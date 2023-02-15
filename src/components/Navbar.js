@@ -24,7 +24,7 @@ function Navbar({ isDark }) {
 
   const [selectedContent, setSC] = useState("Stays");
   return (
-    <div className="container">
+    <div className="container mb-3">
       <div className="d-none d-sm-flex gap-5 justify-content-start w-75 fonts__navbar">
         {navlist.map((e, i) => (
           <div

@@ -1,39 +1,40 @@
 import React from "react";
 
-function PersonOptions({ handleAdult, handleChildren, handleRoom }) {
+function PersonOptions({ incrementDecrement, options }) {
   let contents = [
-    { name: "Adults", min: 1, handleChange: handleAdult },
-    { name: "Children", min: 1, handleChange: handleChildren },
-    { name: "Rooms", min: 1, handleChange: handleRoom },
+    { name: "adult", val: options.adult },
+    { name: "children", val: options.children },
+    { name: "room", val: options.room },
   ];
   return (
     <div
       id="person__option"
-      className="dropdown-menu w-100"
+      className="dropdown-menu w-100 top-100"
       aria-labelledby="dropdownMenuLink"
-      style={{ display: "block !important" }}
     >
       {contents.map((el, i) => (
         <div
           key={i}
           className="d-flex justify-content-between align-items-center m-2"
         >
-          <div>{el.name}</div>
+          <div>{el.name.charAt(0).toUpperCase() + el.name.slice(1)}</div>
           <div className="d-flex align-items-center">
             <button
               className="btn btn-outline-primary"
               onClick={() => {
-                el.handleChange(-1);
+                incrementDecrement(el.name, -1);
               }}
+              disabled={el.name === "children" ? el.val <= 0 : el.val <= 1}
             >
               -
             </button>
-            <div className="mx-3">{el.min}</div>
+            <div className="mx-3">{el.val}</div>
             <button
               className="btn btn-outline-primary"
               onClick={() => {
-                el.handleChange(1);
+                incrementDecrement(el.name, 1);
               }}
+              disabled={el.val >= 9}
             >
               +
             </button>

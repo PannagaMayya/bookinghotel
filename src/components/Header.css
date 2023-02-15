@@ -6,7 +6,7 @@
   background-color: #d8ecf8;
 }
 .logostyle {
-  text-shadow: 1px 1px 3px #101991;
+  text-shadow: 1px 1px 3px #101991 !important;
   width: max-content;
   padding: 10px;
   border-radius: 5px;

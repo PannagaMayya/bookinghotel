@@ -1,37 +1,48 @@
 import React from "react";
-import { useState } from "react";
-import Navbar from "../pages/Navbar";
+import { useContext } from "react";
+import Navbar from "./Navbar";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { darkModeContext } from "../StateProvider";
+import { Link } from "react-router-dom";
+function Header({ heading }) {
+  const obj = useContext(darkModeContext);
 
-function Header() {
-  const [isDark, setIsDark] = useState(true);
-  const handleSwitch = () => {
-    setIsDark((val) => !isDark);
-  };
   return (
     <div
       className={
-        isDark
+        obj.isDark
           ? "container-xxl text-white p-2 darktheme z-index-n1"
           : "container-xxl text-dark p-2 lightheme z-index-n1"
       }
     >
       <div className="row justify-content-center my-2 ">
-        <div className="col col-sm-6">
-          <p className="fs-4 fw-bold logostyle">Hotels.com</p>
-        </div>
+        <Link
+          to="/"
+          className={
+            obj.isDark ? "col col-sm-6 text-white" : "col col-sm-6 text-dark"
+          }
+          style={{ textDecoration: "none" }}
+        >
+          <div>
+            <p className="fs-4 fw-bold logostyle">Hotels.com</p>
+          </div>
+        </Link>
         <div className="col col-sm-4">
           <div className="row gx-5">
             <div className="col ">
               <button
-                className={isDark ? "btn btn-light m-1" : "btn btn-dark m-1"}
+                className={
+                  obj.isDark ? "btn btn-light m-1" : "btn btn-dark m-1"
+                }
               >
                 SignIn
               </button>
               <button
-                className={isDark ? "btn btn-light m-1" : "btn btn-dark m-1"}
+                className={
+                  obj.isDark ? "btn btn-light m-1" : "btn btn-dark m-1"
+                }
               >
                 Register
               </button>
@@ -43,14 +54,14 @@ function Header() {
                 type="checkbox"
                 role="switch"
                 id="flexSwitchCheckDefault"
-                onChange={handleSwitch}
-                checked={isDark}
+                onChange={obj.handleDarkMode}
+                checked={obj.isDark}
               />
               <label
                 className="form-check-label"
                 htmlFor="flexSwitchCheckDefault"
               >
-                {isDark ? (
+                {obj.isDark ? (
                   <FontAwesomeIcon icon={faMoon} />
                 ) : (
                   <FontAwesomeIcon icon={faSun} />
@@ -61,10 +72,12 @@ function Header() {
         </div>
       </div>
       <Navbar />
-      <div className="mt-5 ms-sm-5 p-md-5">
-        <h1>Find your next stay</h1>
-        <h4>Search low prices on hotels, homes and much more...</h4>
-      </div>
+      {heading && (
+        <div className="mt-4 ms-sm-5 p-md-5">
+          <h1>Find your next stay</h1>
+          <h4>Search low prices on hotels, homes and much more...</h4>
+        </div>
+      )}
     </div>
   );
 }

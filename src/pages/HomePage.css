@@ -1,0 +1,8 @@
+.carousel__images > div {
+  width: 48%;
+  height: 20%;
+}
+.carousel__images > div img {
+  height: 150px;
+  object-fit: cover;
+}
