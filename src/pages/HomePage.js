@@ -18,9 +18,9 @@ function HomePage() {
               <div className="d-flex justify-content-around carousel__images ">
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-taj-mahal.jpg"
+                    src="https://cdn.pixabay.com/photo/2019/03/12/20/19/india-4051753_1280.jpg"
                     className="card-img-top"
-                    alt="afra"
+                    alt="agra"
                   />
                   <div
                     className={
@@ -34,9 +34,9 @@ function HomePage() {
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-gateway-of-india-mumbai.jpg"
+                    src="https://images.pexels.com/photos/739987/pexels-photo-739987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     className="card-img-top"
-                    alt="mumbai"
+                    alt="bengaluru"
                   />
                   <div
                     className={
@@ -45,12 +45,12 @@ function HomePage() {
                         : "card-body bg-light text-dark"
                     }
                   >
-                    <h5 className="card-title">Mumbai</h5>
+                    <h5 className="card-title">Bengaluru</h5>
                   </div>
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-the-ganges-river-varanasi.jpg"
+                    src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
                     className="card-img-top"
                     alt="varanasi"
                   />
@@ -86,9 +86,9 @@ function HomePage() {
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-bada-bagh-jaisalmer.jpg"
+                    src="https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg"
                     className="card-img-top"
-                    alt="jaisalamer"
+                    alt="Rajasthan"
                   />
                   <div
                     className={
@@ -97,12 +97,12 @@ function HomePage() {
                         : "card-body bg-light text-dark"
                     }
                   >
-                    <h5 className="card-title">Jaisalamer</h5>
+                    <h5 className="card-title">Rajasthan</h5>
                   </div>
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-train-rides.jpg"
+                    src="https://cdn.pixabay.com/photo/2018/02/07/16/52/shimla-3137468_1280.jpg"
                     className="card-img-top"
                     alt="Shimla"
                   />
@@ -138,9 +138,9 @@ function HomePage() {
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-tea-plantations.jpg"
+                    src="https://cdn.pixabay.com/photo/2018/12/17/15/05/mahadev-3880569_1280.jpg"
                     className="card-img-top"
-                    alt="munnar"
+                    alt="MP"
                   />
                   <div
                     className={
@@ -149,14 +149,14 @@ function HomePage() {
                         : "card-body bg-light text-dark"
                     }
                   >
-                    <h5 className="card-title">Munnar</h5>
+                    <h5 className="card-title">Madhya Pradesh</h5>
                   </div>
                 </div>
                 <div className="card d-block">
                   <img
-                    src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-kapaleeshwarar-temple.jpg"
+                    src="https://cdn.pixabay.com/photo/2020/02/02/17/24/travel-4813658_1280.jpg"
                     className="card-img-top"
-                    alt="shimla"
+                    alt="Delhi"
                   />
                   <div
                     className={
@@ -165,7 +165,7 @@ function HomePage() {
                         : "card-body bg-light text-dark"
                     }
                   >
-                    <h5 className="card-title">Shimla</h5>
+                    <h5 className="card-title">Delhi</h5>
                   </div>
                 </div>
               </div>
@@ -197,6 +197,148 @@ function HomePage() {
             ></span>
             <span className="visually-hidden">Next</span>
           </button>
+        </div>
+        <div className="row m-3">
+          <div className="col position-relative m-auto text_on_image">
+            <p className="position-absolute top-0 p-2">Delhi</p>
+            <img
+              src="https://cdn.pixabay.com/photo/2020/02/02/17/24/travel-4813658_1280.jpg"
+              alt="Delhi"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="col position-relative m-auto text_on_image">
+            <p className="position-absolute top-0 p-2">Bengaluru</p>
+            <img
+              src="https://images.pexels.com/photos/739987/pexels-photo-739987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Bengaluru"
+              className="img-fluid rounded"
+            />
+          </div>
+        </div>
+        <div className="row m-3">
+          <div className="col position-relative m-auto text_on_image">
+            <p className="position-absolute top-0 p-2">Rajasthan</p>
+            <img
+              src="https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg"
+              alt="Rajasthan"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="col position-relative m-auto text_on_image">
+            <p className="position-absolute top-0 p-2">Shimla</p>
+            <img
+              src="https://cdn.pixabay.com/photo/2018/02/07/16/52/shimla-3137468_1280.jpg"
+              alt="shimla"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="col position-relative m-auto text_on_image">
+            <p className="position-absolute top-0 p-2">Varanasi</p>
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              alt="varanasi"
+              className="img-fluid rounded"
+            />
+          </div>
+        </div>
+        <h3>Browse by property type</h3>
+        <div className="row m-3">
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white "
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              className="card-img-top"
+              alt="bla"
+            />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white "
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              className="card-img-top"
+              alt="bla"
+            />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white "
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              className="card-img-top"
+              alt="bla"
+            />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white "
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              className="card-img-top"
+              alt="bla"
+            />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white "
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              className="card-img-top"
+              alt="bla"
+            />
+            <div className="card-body">
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

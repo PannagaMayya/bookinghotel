@@ -41,9 +41,12 @@ function Searchbar() {
   };
   const obj = useContext(darkModeContext);
   return (
-    <div className={obj.isDark ? "bg-dark text-white" : "bg-light text-dark"}>
+    <div
+      className={obj.isDark ? "bg-dark" : "bg-light"}
+      style={{ zIndex: "10", position: "relative" }}
+    >
       <div className="container-lg">
-        <div className="z-index-4 d-flex flex-column flex-md-row justify-content-center overlap">
+        <div className="z-index-5 d-flex flex-column flex-md-row justify-content-center overlap">
           <div className="input-group align-items-center searchbar__inputs">
             <FontAwesomeIcon icon={faBed} className="input-group-text" />
             <input

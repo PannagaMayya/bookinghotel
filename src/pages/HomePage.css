@@ -6,3 +6,21 @@
   height: 150px;
   object-fit: cover;
 }
+
+.card > div > h5 {
+  font-size: 2vw;
+  font-weight: 600;
+}
+.text_on_image > p {
+  font-size: 2vw;
+  font-weight: 700;
+  z-index: 2;
+}
+.text_on_image > img {
+  min-height: 150px;
+  object-fit: cover;
+}
+.text_on_image > img:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
