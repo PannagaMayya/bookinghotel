@@ -43,7 +43,7 @@ function Searchbar() {
   return (
     <div
       className={obj.isDark ? "bg-dark" : "bg-light"}
-      style={{ zIndex: "10", position: "relative" }}
+      style={{ zIndex: "1060", position: "relative" }}
     >
       <div className="container-lg">
         <div className="z-index-5 d-flex flex-column flex-md-row justify-content-center overlap">

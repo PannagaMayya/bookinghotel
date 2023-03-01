@@ -11,11 +11,7 @@ function Header({ heading }) {
 
   return (
     <div
-      className={
-        obj.isDark
-          ? "text-white darktheme z-index-n1"
-          : "text-dark lightheme z-index-n1"
-      }
+      className={obj.isDark ? "text-white darktheme" : "text-dark lightheme "}
     >
       <div className="container-xxl p-2">
         <div className="row justify-content-center my-2 ">

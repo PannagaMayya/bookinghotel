@@ -16,51 +16,51 @@ function HomePage() {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="d-flex justify-content-around carousel__images ">
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2019/03/12/20/19/india-4051753_1280.jpg"
                     className="card-img-top"
                     alt="agra"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Agra</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://images.pexels.com/photos/739987/pexels-photo-739987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     className="card-img-top"
                     alt="bengaluru"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Bengaluru</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
                     className="card-img-top"
                     alt="varanasi"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Varanasi</h5>
                   </div>
                 </div>
@@ -68,51 +68,51 @@ function HomePage() {
             </div>
             <div className="carousel-item">
               <div className="d-flex justify-content-around carousel__images">
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-cola-beach-goa.jpg"
                     className="card-img-top"
                     alt="goa"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Goa</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg"
                     className="card-img-top"
                     alt="Rajasthan"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Rajasthan</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2018/02/07/16/52/shimla-3137468_1280.jpg"
                     className="card-img-top"
                     alt="Shimla"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Shimla</h5>
                   </div>
                 </div>
@@ -120,51 +120,51 @@ function HomePage() {
             </div>
             <div className="carousel-item">
               <div className="d-flex justify-content-around carousel__images">
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-kapaleeshwarar-temple.jpg"
                     className="card-img-top"
                     alt="chennai"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Chennai</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2018/12/17/15/05/mahadev-3880569_1280.jpg"
                     className="card-img-top"
                     alt="MP"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Madhya Pradesh</h5>
                   </div>
                 </div>
-                <div className="card d-block">
+                <div
+                  className={
+                    obj.isDark
+                      ? "card d-block bg-dark text-white"
+                      : "card d-block bg-light text-dark"
+                  }
+                >
                   <img
                     src="https://cdn.pixabay.com/photo/2020/02/02/17/24/travel-4813658_1280.jpg"
                     className="card-img-top"
                     alt="Delhi"
                   />
-                  <div
-                    className={
-                      obj.isDark
-                        ? "card-body bg-dark text-white "
-                        : "card-body bg-light text-dark"
-                    }
-                  >
+                  <div className="card-body">
                     <h5 className="card-title">Delhi</h5>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ function HomePage() {
           </div>
         </div>
         <h3>Browse by property type</h3>
-        <div className="row m-3">
+        <div className="row row-cols-3 row-cols-lg-6  mx-3 mt-3">
           <div
             className={
               obj.isDark
@@ -254,13 +254,10 @@ function HomePage() {
             <img
               src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
               className="card-img-top"
-              alt="bla"
+              alt="vrncard"
             />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text h6">Varanasi</p>
             </div>
           </div>
           <div
@@ -271,15 +268,12 @@ function HomePage() {
             }
           >
             <img
-              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              src="https://cdn.pixabay.com/photo/2021/04/06/11/22/hawa-mahal-6156123_1280.jpg"
               className="card-img-top"
-              alt="bla"
+              alt="rajcard"
             />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text h6">Rajasthan</p>
             </div>
           </div>
           <div
@@ -290,15 +284,12 @@ function HomePage() {
             }
           >
             <img
-              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              src="https://images.pexels.com/photos/739987/pexels-photo-739987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               className="card-img-top"
-              alt="bla"
+              alt="bencard"
             />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text h6">Bengaluru</p>
             </div>
           </div>
           <div
@@ -309,15 +300,12 @@ function HomePage() {
             }
           >
             <img
-              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              src="https://cdn.pixabay.com/photo/2020/02/02/17/24/travel-4813658_1280.jpg"
               className="card-img-top"
-              alt="bla"
+              alt="delcard"
             />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text h6">Delhi</p>
             </div>
           </div>
           <div
@@ -328,15 +316,28 @@ function HomePage() {
             }
           >
             <img
-              src="https://cdn.pixabay.com/photo/2018/01/16/20/39/india-3086808_1280.jpg"
+              src="https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-cola-beach-goa.jpg"
               className="card-img-top"
-              alt="bla"
+              alt="goacard"
             />
             <div className="card-body">
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text h6">Goa</p>
+            </div>
+          </div>
+          <div
+            className={
+              obj.isDark
+                ? "col card bg-dark text-white"
+                : "col card bg-light text-dark"
+            }
+          >
+            <img
+              src="https://cdn.pixabay.com/photo/2018/12/17/15/05/mahadev-3880569_1280.jpg"
+              className="card-img-top"
+              alt="mpcard"
+            />
+            <div className="card-body">
+              <p className="card-text h6">MP</p>
             </div>
           </div>
         </div>
