@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import PersonOptions from "./PersonOptions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Searchbar.css";
+import { useNavigate } from "react-router-dom";
 import { addDays } from "date-fns";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
@@ -12,6 +13,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 function Searchbar() {
+  const navigate = useNavigate();
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -97,9 +99,13 @@ function Searchbar() {
             <PersonOptions
               incrementDecrement={incrementDecrement}
               options={options}
+              isHotelPage={false}
             />
           </div>
-          <div className="d-flex align-self-stretch align-items-center searchbar__inputs search__button">
+          <div
+            className="d-flex align-self-stretch align-items-center searchbar__inputs search__button"
+            onClick={() => navigate("/hotels")}
+          >
             <span>Search</span>
           </div>
         </div>

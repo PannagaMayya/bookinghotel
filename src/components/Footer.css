@@ -7,3 +7,22 @@
 .footer_subscribe:hover {
   background-color: #5b9cc5;
 }
+
+.footer_secondary {
+  background-color: #2d1c9a;
+}
+.footer_secondary > p {
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+.footer_secondary > p:hover {
+  background-color: #281987;
+}
+small {
+  margin: 2px 0px;
+  cursor: pointer;
+}
+small:hover {
+  text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-function PersonOptions({ incrementDecrement, options }) {
+function PersonOptions({ incrementDecrement, options, isHotelPage }) {
   let contents = [
     { name: "adult", val: options.adult },
     { name: "children", val: options.children },
@@ -9,7 +9,7 @@ function PersonOptions({ incrementDecrement, options }) {
   return (
     <div
       id="person__option"
-      className="dropdown-menu w-100 top-100"
+      className={!isHotelPage ? "dropdown-menu w-100 top-100" : ""}
       aria-labelledby="dropdownMenuLink"
     >
       {contents.map((el, i) => (

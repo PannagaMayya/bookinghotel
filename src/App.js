@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Searchbar from "./components/Searchbar";
 import HomePage from "./pages/HomePage";
+import HotelPage from "./pages/HotelPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           element={
             <>
               <Header heading={false} />
+              <HotelPage />
               <Footer />
             </>
           }
