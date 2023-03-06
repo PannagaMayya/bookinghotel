@@ -19,10 +19,10 @@
 .footer_secondary > p:hover {
   background-color: #281987;
 }
-small {
+.footer__links > small {
   margin: 2px 0px;
   cursor: pointer;
 }
-small:hover {
+.footer__links > small:hover {
   text-decoration: underline;
 }

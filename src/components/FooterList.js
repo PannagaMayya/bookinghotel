@@ -9,7 +9,7 @@ function FooterList({ isDark }) {
           : "text-primary bg-white d-flex justify-content-around p-2"
       }
     >
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column footer__links">
         <small>Countries</small>
         <small>Regions</small>
         <small>Cities</small>
@@ -18,7 +18,7 @@ function FooterList({ isDark }) {
         <small>Hotels</small>
         <small>Places of interest</small>
       </div>
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column footer__links">
         <small>Homes</small>
         <small>Apartments</small>
         <small>Resorts</small>
@@ -27,7 +27,7 @@ function FooterList({ isDark }) {
         <small>B&Bs</small>
         <small>Guest houses</small>
       </div>
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column footer__links">
         <small>Unique places to stay</small>
         <small>All destinations</small>
         <small>All flight destinations</small>
@@ -39,7 +39,7 @@ function FooterList({ isDark }) {
         <small>Seasonal and holiday deals</small>
         <small>Traveller Review Awards</small>
       </div>
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-column footer__links">
         <small>Car rental</small>
         <small>Flight finder</small>
         <small>Restaurant reservations</small>

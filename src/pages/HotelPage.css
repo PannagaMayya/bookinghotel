@@ -1,3 +1,19 @@
 .modal-backdrop {
   z-index: 1010 !important;
 }
+.sticky_style {
+  position: sticky;
+  top: 10px;
+}
+.searchHotel_button {
+  background-color: #3c7be1;
+  color: white;
+  margin: 20px 2px;
+  padding: 5px;
+}
+
+.hotel_heading {
+  color: #3c7be1;
+  font-weight: 700;
+  font-size: 0.9rem;
+}

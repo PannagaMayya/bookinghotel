@@ -1,33 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import PersonOptions from "./PersonOptions";
 function SearchBarHotel() {
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+  const incrementDecrement = (e, val) => {
+    setOptions((obj) => ({ ...obj, [e]: obj[e] + val }));
+  };
   return (
     <div className="d-flex flex-column">
-      <label for="hotelpagedestination" className="form-label">
+      <label for="hotelpagedestination" className="form-label fw-normal">
         Destination
       </label>
       <input type="text" className="form-control" id="hotelpagedestination" />
-      <label for="hotelpagedate" className="form-label">
+      <label for="hotelpagedate" className="form-label fw-normal">
         Check-in/Check-out date
       </label>
       <input type="text" className="form-control" id="hotelpagedate" />
 
-      <div
-        id="Hoteloptions"
-        data-bs-toggle="collapse"
-        href="#collapseExample"
-        role="button"
-        aria-expanded="false"
-        aria-controls="collapseExample"
-      >
+      <label for="searchOptions" className="form-label fw-normal">
         Select Options
-      </div>
-      <div class="collapse" id="collapseExample">
+      </label>
+      <button
+        className="btn"
+        type="button"
+        id="searchOptions"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseSearchOption"
+        aria-expanded="false"
+        style={{ backgroundColor: "white" }}
+      >
+        <small>
+          {options.adult +
+            (options.adult === 1 ? "  Adult  •  " : "  Adults  •  ") +
+            options.children +
+            (options.children === 1 ? "  Child   •  " : "  Children   •  ") +
+            options.room +
+            (options.room === 1 ? "  Room" : "  Rooms")}
+        </small>
+      </button>
+      <div
+        class="collapse"
+        id="collapseSearchOption"
+        style={{ backgroundColor: "white", marginTop: "3px" }}
+      >
         <PersonOptions
-          options={{ adult: 0, children: 2, room: 2 }}
+          incrementDecrement={incrementDecrement}
+          options={{
+            adult: options.adult,
+            children: options.children,
+            room: options.room,
+          }}
           isHotelPage={true}
         />
       </div>
+      <button className="searchHotel_button">Search</button>
     </div>
   );
 }
