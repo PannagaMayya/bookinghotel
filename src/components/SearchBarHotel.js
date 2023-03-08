@@ -10,17 +10,18 @@ function SearchBarHotel() {
     setOptions((obj) => ({ ...obj, [e]: obj[e] + val }));
   };
   return (
-    <div className="d-flex flex-column">
-      <label for="hotelpagedestination" className="form-label fw-normal">
+    <div className="d-flex flex-column text-dark">
+      <h5>Search</h5>
+      <label htmlFor="hotelpagedestination" className="form-label fw-normal">
         Destination
       </label>
       <input type="text" className="form-control" id="hotelpagedestination" />
-      <label for="hotelpagedate" className="form-label fw-normal">
+      <label htmlFor="hotelpagedate" className="form-label fw-normal">
         Check-in/Check-out date
       </label>
       <input type="text" className="form-control" id="hotelpagedate" />
 
-      <label for="searchOptions" className="form-label fw-normal">
+      <label htmlFor="searchOptions" className="form-label fw-normal">
         Select Options
       </label>
       <button
@@ -42,7 +43,7 @@ function SearchBarHotel() {
         </small>
       </button>
       <div
-        class="collapse"
+        className="collapse"
         id="collapseSearchOption"
         style={{ backgroundColor: "white", marginTop: "3px" }}
       >

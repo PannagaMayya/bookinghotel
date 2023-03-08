@@ -4,6 +4,13 @@
 .sticky_style {
   position: sticky;
   top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sticky_style_search {
+  position: sticky;
+  top: 10px;
 }
 .searchHotel_button {
   background-color: #3c7be1;
