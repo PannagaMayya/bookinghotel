@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import "./HotelPage.css";
-import { faAnglesRight, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAnglesRight,
+  faAngleDown,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBarHotel from "../components/SearchBarHotel";
 import { darkModeContext } from "../StateProvider";
@@ -63,10 +67,21 @@ function HotelPage() {
                 alt="hotelsImage1"
               ></img>
 
-              <div className="d-flex flex-column flex-fill ps-3 py-2 justify-content-between">
-                <h6 className="hotel_heading">
+              <div className="d-flex flex-column flex-fill ps-3 py-1">
+                <h6 className="hotel_heading mb-1">
                   Island Links Resort by PalmeraOpens in new window
                 </h6>
+                <p className="hotel_location mb-2">
+                  {" "}
+                  <span
+                    style={{ textDecoration: "underline", color: "#3c7be1" }}
+                    className="me-1"
+                  >
+                    <FontAwesomeIcon icon={faLocationDot} className="me-1" />
+                    Island Link
+                  </span>{" "}
+                  2.6 km from center
+                </p>
                 <div
                   style={{
                     fontSize: "0.8rem",
@@ -97,18 +112,16 @@ function HotelPage() {
               </div>
               <div
                 className="d-flex flex-column justify-content-between align-items-end w-25 py-1"
-                style={{ fontSize: "0.9rem" }}
+                style={{ fontSize: "0.87rem" }}
               >
                 <div>
-                  <small>
+                  <small className="d-flex flex-column flex-sm-row align-items-center">
                     <strong className="text-nowrap">Very Good</strong>
-                    <span className="badge bg-primary float-end ms-1 fs-6">
-                      6.7
-                    </span>
+                    <span className="badge bg-primary ms-1 fs-6">6.7</span>
                   </small>
                 </div>
                 <div className="d-flex flex-column justify-content-center align-items-end">
-                  <strong className="fs-5">
+                  <strong className="fs-6">
                     ₹{Intl.NumberFormat("en-IN").format(12312)}
                   </strong>
 

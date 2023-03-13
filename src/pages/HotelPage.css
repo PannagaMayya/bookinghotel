@@ -18,9 +18,32 @@
   margin: 20px 2px;
   padding: 5px;
 }
+.date__hotel__width {
+  width: 550px;
+  height: 500px;
+}
 
 .hotel_heading {
   color: #3c7be1;
   font-weight: 700;
   font-size: 0.9rem;
+}
+.hotel_location {
+  font-size: 0.7rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .hotel_heading {
+    font-size: 0.75rem;
+  }
+  .hotel_location {
+    font-size: 0.53rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .date__hotel__width {
+    width: 350px;
+    height: 400px;
+    font-size: 0.56rem !important;
+  }
 }

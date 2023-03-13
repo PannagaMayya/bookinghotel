@@ -13,12 +13,12 @@ function Header({ heading }) {
     <div
       className={obj.isDark ? "text-white darktheme" : "text-dark lightheme "}
     >
-      <div className="container-xxl p-2">
-        <div className="row justify-content-center my-2 ">
+      <div className="container-xxl py-2">
+        <div className="row justify-content-around my-2 ">
           <Link
             to="/"
             className={
-              obj.isDark ? "col col-sm-6 text-white" : "col col-sm-6 text-dark"
+              obj.isDark ? "col col-md-6 text-white" : "col col-md-6 text-dark"
             }
             style={{ textDecoration: "none" }}
           >
@@ -26,9 +26,9 @@ function Header({ heading }) {
               <p className="fs-4 fw-bold logostyle">Hotels.com</p>
             </div>
           </Link>
-          <div className="col col-sm-4">
+          <div className="col col-md-4">
             <div className="row gx-5">
-              <div className="col ">
+              <div className="col">
                 <button
                   className={
                     obj.isDark ? "btn btn-light m-1" : "btn btn-dark m-1"
