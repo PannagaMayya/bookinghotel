@@ -10,6 +10,7 @@ function PersonOptions({ incrementDecrement, options, isHotelPage }) {
     <div
       id="person__option"
       className={!isHotelPage ? "dropdown-menu w-100 top-100" : ""}
+      style={{ left: "0" }}
       aria-labelledby="dropdownMenuLink"
     >
       {contents.map((el, i) => (

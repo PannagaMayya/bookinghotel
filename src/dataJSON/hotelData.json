@@ -1,0 +1,31 @@
+{
+  "data": {
+    "hotellist": [
+      {
+        "id": "29002",
+        "title": "Jegenta Hotel - Bengaluru City ahhahhaahahayaahayahayahak kkkkkkkkkkkkkkkkkkk aakkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk ",
+        "location": "BTM Layout, Bengaluru",
+        "km": 2.2,
+        "price": 2131,
+        "rating": 6.6,
+        "descriptionheading": "Superior Double Room",
+        "description": "1 Bed Room • 1 Kitchen • 1 bathroom",
+        "descriptionGreenheading": "FREE cancellation • No prepayment needed",
+        "descriptionGreen": "You can cancel later, so lock in this great price today!",
+        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
+      },
+      {
+        "id": "54673",
+        "title": "Jegenta Hotel - Bengaluru City ",
+        "location": "BTM Layout, ajajjajajaiiqiqi",
+        "km": 4.2,
+        "price": 21314,
+        "rating": 9.6,
+        "descriptionheading": "Superior Double Room",
+        "description": "1 Bed Room • 1 Kitchen • 1 bathroom",
+
+        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
+      }
+    ]
+  }
+}

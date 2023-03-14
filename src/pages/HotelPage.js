@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import hotelData from "../dataJSON/hotelData.json";
 import "./HotelPage.css";
 import {
   faAnglesRight,
@@ -55,22 +56,24 @@ function HotelPage() {
         <SearchBarHotel />
       </div>
       <div className="flex-fill flex-column">
-        {[1, 2, 3, 4].map((cur, i) => (
+        {hotelData.data.hotellist.map((cur, i) => (
           <div
             className="d-flex flex-column border border-primary rounded mx-2 my-4 p-2"
-            key={i}
+            key={cur.id}
           >
             <div className="d-flex">
               <img
-                src="https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                src={cur.imglink}
                 style={{ objectFit: "cover", width: "24%" }}
                 alt="hotelsImage1"
               ></img>
 
               <div className="d-flex flex-column flex-fill ps-3 py-1">
-                <h6 className="hotel_heading mb-1">
-                  Island Links Resort by PalmeraOpens in new window
-                </h6>
+                <h5 className="hotel_heading mb-1">
+                  {cur.title.length > 46
+                    ? cur.title.slice(0, 46) + "...."
+                    : cur.title}
+                </h5>
                 <p className="hotel_location mb-2">
                   {" "}
                   <span
@@ -78,9 +81,9 @@ function HotelPage() {
                     className="me-1"
                   >
                     <FontAwesomeIcon icon={faLocationDot} className="me-1" />
-                    Island Link
+                    {cur.location}
                   </span>{" "}
-                  2.6 km from center
+                  {cur.km} km from center
                 </p>
                 <div
                   style={{
@@ -102,11 +105,14 @@ function HotelPage() {
                     See availability
                   </button>
                   <div className="d-none d-md-block ms-2">
-                    <strong>One-Bedroom Apartment</strong>
-                    <p>
-                      Entire apartment • 1 bedroom • 1 living room • 1 bathroom
-                      • 1 kitchen • 50m² • 3 beds (2 sofa beds, 1 queen)
-                    </p>
+                    <strong>{cur.descriptionheading}</strong>
+                    <p>{cur.description}</p>
+                    {cur.descriptionGreenheading && (
+                      <div className="text-success">
+                        <strong>{cur.descriptionGreenheading}</strong>
+                        <p>{cur.descriptionGreen}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -117,12 +123,14 @@ function HotelPage() {
                 <div>
                   <small className="d-flex flex-column flex-sm-row align-items-center">
                     <strong className="text-nowrap">Very Good</strong>
-                    <span className="badge bg-primary ms-1 fs-6">6.7</span>
+                    <span className="badge bg-primary ms-1 fs-6">
+                      {cur.rating}
+                    </span>
                   </small>
                 </div>
                 <div className="d-flex flex-column justify-content-center align-items-end">
                   <strong className="fs-6">
-                    ₹{Intl.NumberFormat("en-IN").format(12312)}
+                    ₹{Intl.NumberFormat("en-IN").format(cur.price)}
                   </strong>
 
                   <p
@@ -169,11 +177,14 @@ function HotelPage() {
                   paddingTop: "0.2rem",
                 }}
               >
-                <strong>One-Bedroom Apartment</strong>
-                <p>
-                  Entire apartment • 1 bedroom • 1 living room • 1 bathroom • 1
-                  kitchen • 50m² • 3 beds (2 sofa beds, 1 queen)
-                </p>
+                <strong>{cur.descriptionheading}</strong>
+                <p>{cur.description}</p>
+                {cur.descriptionGreenheading && (
+                  <div className="text-success">
+                    <strong>{cur.descriptionGreenheading}</strong>
+                    <p>{cur.descriptionGreen}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
