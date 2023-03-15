@@ -9,14 +9,16 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBarHotel from "../components/SearchBarHotel";
 import { darkModeContext } from "../StateProvider";
+import { useNavigate } from "react-router-dom";
 function HotelPage() {
   const obj = useContext(darkModeContext);
+  const navigate = useNavigate();
   return (
     <div
       className={
         obj.isDark
-          ? "container-xxl d-flex p-2 bg-dark text-white"
-          : "container-xxl d-flex p-2 bg-light text-dark"
+          ? "container-xxl min-vh-100 d-flex p-2 bg-dark text-white"
+          : "container-xxl min-vh-100 d-flex p-2 bg-light text-dark"
       }
     >
       <div className="d-block d-lg-none justify-content-center p-2 bg-warning ">
@@ -101,6 +103,9 @@ function HotelPage() {
                       color: "white",
                       fontWeight: "500",
                     }}
+                    onClick={(e) => {
+                      navigate("/hotel/" + cur.id);
+                    }}
                   >
                     See availability
                   </button>
@@ -122,7 +127,9 @@ function HotelPage() {
               >
                 <div>
                   <small className="d-flex flex-column flex-sm-row align-items-center">
-                    <strong className="text-nowrap">Very Good</strong>
+                    <strong className="text-nowrap">
+                      {getRating(cur.rating)}
+                    </strong>
                     <span className="badge bg-primary ms-1 fs-6">
                       {cur.rating}
                     </span>
@@ -153,6 +160,9 @@ function HotelPage() {
                       backgroundColor: "#3c7be1",
                       fontWeight: "500",
                       color: "white",
+                    }}
+                    onClick={(e) => {
+                      navigate("/hotel/" + cur.id);
                     }}
                   >
                     See availability
@@ -193,5 +203,10 @@ function HotelPage() {
     </div>
   );
 }
-
+const getRating = (rating) => {
+  if (rating > 8.5) return "Excellent";
+  if (rating > 6.5) return "Very Good";
+  if (rating > 4) return "Good";
+  return "Average";
+};
 export default HotelPage;

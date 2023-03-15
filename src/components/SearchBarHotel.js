@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PersonOptions from "./PersonOptions";
 import { addDays } from "date-fns";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarDays, faUser } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from "react-date-range";
 function SearchBarHotel() {
   const [state, setState] = useState([
@@ -26,6 +27,7 @@ function SearchBarHotel() {
         <label htmlFor="hotelpagedestination" className="form-label fw-normal">
           Destination
         </label>
+
         <input type="text" className="form-control" id="hotelpagedestination" />
         <label htmlFor="hotelpagedate" className="form-label fw-normal">
           Select Date
@@ -42,6 +44,7 @@ function SearchBarHotel() {
             data-bs-target="#date_hotel"
             aria-expanded="false"
           >
+            <FontAwesomeIcon icon={faCalendarDays} />
             <small> Check-in - Check-out</small>
           </button>
           <div
@@ -73,6 +76,7 @@ function SearchBarHotel() {
           aria-expanded="false"
           style={{ backgroundColor: "white" }}
         >
+          <FontAwesomeIcon icon={faUser} style={{ marginRight: "5px" }} />
           <small>
             {options.adult +
               (options.adult === 1 ? "  Adult  •  " : "  Adults  •  ") +
