@@ -14,6 +14,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 function Searchbar() {
   const navigate = useNavigate();
+  const [destination, setDestination] = useState("");
+  const [error, setError] = useState("");
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -55,6 +57,10 @@ function Searchbar() {
               type="text"
               className="form-control"
               placeholder="Where are you going?"
+              value={destination}
+              onChange={(e) => {
+                setDestination(e.target.value);
+              }}
             ></input>
           </div>
           <div className="w-auto text-nowrap input-group searchbar__inputs">
@@ -104,12 +110,29 @@ function Searchbar() {
           </div>
           <div
             className="d-flex align-self-stretch align-items-center searchbar__inputs search__button"
-            onClick={() => navigate("/hotels")}
+            onClick={() => {
+              let actulDatetoPass =
+                actualDate.startDate && actualDate.endDate
+                  ? actualDate
+                  : {
+                      startDate: new Date(),
+                      endDate: addDays(new Date(), 1),
+                    };
+              destination
+                ? navigate("/hotels", {
+                    state: { actulDatetoPass, options, destination },
+                  })
+                : setError("Enter Destination!");
+            }}
           >
             <span>Search</span>
           </div>
         </div>
-
+        {error && (
+          <div className="alert alert-danger" style={{ marginBottom: 0 }}>
+            <strong>{error}</strong>
+          </div>
+        )}
         <div className="modal" id="search_date" tabIndex="-1">
           <div className="modal-dialog modal-dialog-scrollable">
             <div className="modal-content">

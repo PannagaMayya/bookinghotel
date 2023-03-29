@@ -4,6 +4,7 @@ const HotelSchema = new Schema({
   id: { type: String, required: true },
   title: { type: String, required: true },
   location: { type: String, required: true },
+  taggedCity: { type: String, required: true },
   km: { type: String, required: true },
   price: { type: Number, required: true },
   rating: { type: Number, required: true, min: 0, max: 10 },

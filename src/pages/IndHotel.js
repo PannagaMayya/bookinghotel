@@ -16,6 +16,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { darkModeContext } from "../StateProvider";
 
 function IndHotel() {
+  const images = [
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/274545386.jpg?k=e2eece9d117ac05fa248c98a383827fdefb8330883064a91a0f7b30b0a2327f3&o=&hp=1",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415230280.jpg?k=04868b4bbafd24f75b81ff5701a4b28f4801653baffdce3ade6af88565f719ec&o=&hp=1",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/274545378.jpg?k=8394948044a1c514cb1acd0725a9aadce54014e6b29ddb4be6cf0c41464faa8e&o=&hp=1",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/344764297.jpg?k=074a0878a6ec61ccbbe4b845871ea77ad7cca0bb89e6fc0f3fffff9e76de4ee5&o=&hp=1",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/344764957.jpg?k=75705fe610bd322c5198705f57487941c3e59270aa3e0fd59750a8fe465124a7&o=&hp=1",
+  ];
   const obj = useContext(darkModeContext);
   const { id } = useParams();
   const curHotel = hotelData.data.hotellist.filter((cur) => id === cur.id);
@@ -59,21 +66,24 @@ function IndHotel() {
                   ></img>
                 ))}
                 <div className="col-4 col-lg-3 row">
-                  {[0, 1].map((cur, i) => (
+                  {[
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/34933414.jpg?k=4d3a063f96247c56c6215cd329483a4a3d82461a8b666accf8b04596013a938d&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/245746602.jpg?k=7f53cab4afb3d25283e6c57b1e862b541511112a9ff0b985ec36ca2c0c370f27&o=&hp=1",
+                  ].map((cur, i) => (
                     <img
-                      src="https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
-                      alt="hotel"
+                      src={cur}
+                      alt={"hotel" + i}
                       key={i}
                       className="col-12 mb-3"
                     ></img>
                   ))}
                 </div>
               </div>
-              <div className="row row-cols-5 gx-3">
-                {[0, 1, 2, 4, 5].map((cur, i) => (
+              <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+                {images.map((cur, i) => (
                   <img
-                    src="https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
-                    alt="hotel"
+                    src={cur}
+                    alt={"hotel" + i}
                     key={i}
                     className="col"
                   ></img>
@@ -101,15 +111,23 @@ function IndHotel() {
               </div>
             </div>
             <div className="d-flex flex-column flex-md-row">
-              <div>
+              <div className="me-5">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Nisl nisi scelerisque eu ultrices vitae. Amet cursus sit amet
-                  dictum sit amet justo donec. Imperdiet sed euismod nisi porta.
-                  Nibh tortor id aliquet lectus proin nibh nisl. Interdum velit
-                  laoreet id donec ultrices tincidunt arcu non sodales. Ac
-                  tortor vitae purus faucibus ornare suspendisse sed nisi lacus.
+                  dictum sit amet justo donec.
+                </p>
+                <p>
+                  Imperdiet sed euismod nisi porta. Nibh tortor id aliquet
+                  lectus proin nibh nisl. Interdum velit laoreet id donec
+                  ultrices tincidunt arcu non sodales.
+                </p>
+                <p>
+                  Ac tortor vitae purus faucibus ornare suspendisse sed nisi
+                  lacus.
+                </p>
+                <p>
                   Viverra tellus in hac habitasse platea dictumst vestibulum.
                   Donec ultrices tincidunt arcu non sodales neque sodales ut.
                   Vitae auctor eu augue ut lectus arcu bibendum. Eu nisl nunc mi
@@ -120,7 +138,7 @@ function IndHotel() {
                 </p>
               </div>
               <div
-                className="text-dark p-3 ms-2 rounded"
+                className="text-dark p-3 ms-2 rounded h-100"
                 style={{ minWidth: "350px", backgroundColor: "#9fc5e8" }}
               >
                 <h5>Property Highlights</h5>
