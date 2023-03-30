@@ -11,6 +11,7 @@ import {
   faTv,
   faParking,
   faLocationDot,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { darkModeContext } from "../StateProvider";
@@ -55,7 +56,7 @@ function IndHotel() {
                 {curHotel[0].location}
               </p>
             </div>
-            <div className="container">
+            <div className="container d-none d-md-block">
               <div className="row row-cols-2 gx-5 my-3">
                 {[0].map((cur, i) => (
                   <img
@@ -79,7 +80,7 @@ function IndHotel() {
                   ))}
                 </div>
               </div>
-              <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+              <div className="row row-cols-md-3 row-cols-lg-5 g-3">
                 {images.map((cur, i) => (
                   <img
                     src={cur}
@@ -89,6 +90,55 @@ function IndHotel() {
                   ></img>
                 ))}
               </div>
+            </div>
+            <div
+              id="carouselExampleControls"
+              className="carousel slide d-md-none"
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img
+                    src="https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
+                    className="d-block w-100"
+                    alt="MainImage"
+                  />
+                </div>
+                {images.map((cur, i) => (
+                  <div className="carousel-item" key={i}>
+                    <img
+                      src={cur}
+                      className="d-block w-100"
+                      alt={i + "__" + i}
+                      style={{ height: "70vh" }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
             </div>
             <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center flex-wrap text-center m-2 gap-4">
               <div className="w-25 border border-primary p-2">
@@ -171,6 +221,60 @@ function IndHotel() {
                   Reserve Now
                 </button>
               </div>
+            </div>
+            <div className="d-flex flex-column">
+              <h3>Availability</h3>
+              <table className="table table-info table-striped table-bordered border-primary">
+                <thead>
+                  <tr>
+                    <th>Room Type</th>
+                    <th>Sleeps</th>
+                    <th>Price</th>
+                    <th>Rooms</th>
+                  </tr>
+                </thead>
+                {curHotel[0].rooms.map((cur, i) => (
+                  <tbody>
+                    <tr key={i}>
+                      <td rowSpan="2">{cur.roomType}</td>
+
+                      <td>
+                        <FontAwesomeIcon icon={faUser} />
+                        <FontAwesomeIcon icon={faUser} />
+                      </td>
+                      <td>
+                        <strong className="fs-6">
+                          ₹
+                          {Intl.NumberFormat("en-IN").format(
+                            cur.roomDoubleCost
+                          )}
+                        </strong>
+                      </td>
+                      <td>{cur.roomDoubleAvailable}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <FontAwesomeIcon icon={faUser} />
+                      </td>
+                      <td>
+                        <strong className="fs-6">
+                          ₹
+                          {Intl.NumberFormat("en-IN").format(
+                            cur.roomSingleCost
+                          )}
+                        </strong>
+                      </td>
+                      <td>
+                        <select value={1}>
+                          <option>1</option>
+                          <option>5</option>
+                          <option>{cur.roomSingleAvailable}</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
+              </table>
             </div>
           </div>
         ) : (

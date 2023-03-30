@@ -4,19 +4,22 @@ import { addDays } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faUser } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from "react-date-range";
-function SearchBarHotel() {
+function SearchBarHotel({ searchState }) {
+  const [destination, setDestination] = useState(searchState.destination || "");
   const [state, setState] = useState([
     {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
+      startDate: searchState?.actulDatetoPass?.startDate || new Date(),
+      endDate: searchState?.actulDatetoPass?.endDate || addDays(new Date(), 1),
       key: "selection",
     },
   ]);
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
+  const [options, setOptions] = useState(
+    searchState?.options || {
+      adult: 1,
+      children: 0,
+      room: 1,
+    }
+  );
   const incrementDecrement = (e, val) => {
     setOptions((obj) => ({ ...obj, [e]: obj[e] + val }));
   };
@@ -28,7 +31,15 @@ function SearchBarHotel() {
           Destination
         </label>
 
-        <input type="text" className="form-control" id="hotelpagedestination" />
+        <input
+          type="text"
+          className="form-control"
+          id="hotelpagedestination"
+          value={destination}
+          onChange={(e) => {
+            setDestination(e.target.value);
+          }}
+        />
         <label htmlFor="hotelpagedate" className="form-label fw-normal">
           Select Date
         </label>
@@ -44,8 +55,12 @@ function SearchBarHotel() {
             data-bs-target="#date_hotel"
             aria-expanded="false"
           >
-            <FontAwesomeIcon icon={faCalendarDays} />
-            <small> Check-in - Check-out</small>
+            <FontAwesomeIcon icon={faCalendarDays} className="me-1" />
+            <small>
+              {state[0]?.startDate.toString().split(" ", 3).join(" ") +
+                "  -  " +
+                state[0]?.endDate.toString().split(" ", 3).join(" ")}
+            </small>
           </button>
           <div
             id="date_hotel"
@@ -58,6 +73,8 @@ function SearchBarHotel() {
               moveRangeOnFirstSelection={false}
               months={2}
               ranges={state}
+              minDate={new Date()}
+              maxDate={addDays(new Date(), 100)}
               direction="horizontal"
               className="date__hotel__width"
             />

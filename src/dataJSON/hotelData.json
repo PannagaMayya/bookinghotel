@@ -13,7 +13,33 @@
         "description": "1 Bed Room • 1 Kitchen • 1 bathroom",
         "descriptionGreenheading": "FREE cancellation • No prepayment needed",
         "descriptionGreen": "You can cancel later, so lock in this great price today!",
-        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
+        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1",
+        "rooms": [
+          {
+            "roomType": "Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 2,
+            "roomDoubleCost": 11534,
+            "roomSingleAvailable": 1,
+            "roomSingleCost": 4538
+          },
+          {
+            "roomType": "Deluxe Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 4,
+            "roomDoubleCost": 12534,
+            "roomSingleAvailable": 6,
+            "roomSingleCost": 6538
+          },
+          {
+            "roomType": "Luxury Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 2,
+            "roomDoubleCost": 18534,
+            "roomSingleAvailable": 4,
+            "roomSingleCost": 9538
+          }
+        ]
       },
       {
         "id": "54673",
@@ -26,7 +52,33 @@
         "descriptionheading": "Superior Double Room",
         "description": "1 Bed Room • 1 Kitchen • 1 bathroom",
 
-        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1"
+        "imglink": "https://cf.bstatic.com/xdata/images/hotel/square600/223496641.webp?k=80081aca5d33e0b1d46eae242d1e36110d6674326e1a0cd9ff7b87dc4e4ac7c1&o=&s=1",
+        "rooms": [
+          {
+            "roomType": "Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 3,
+            "roomDoubleCost": 8534,
+            "roomSingleAvailable": 2,
+            "roomSingleCost": 3538
+          },
+          {
+            "roomType": "Deluxe Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 3,
+            "roomDoubleCost": 10114,
+            "roomSingleAvailable": 3,
+            "roomSingleCost": 3228
+          },
+          {
+            "roomType": "Luxury Room King Bed",
+            "roomDescription": "1 Lorem ipsum dolor",
+            "roomDoubleAvailable": 3,
+            "roomDoubleCost": 19546,
+            "roomSingleAvailable": 2,
+            "roomSingleCost": 9528
+          }
+        ]
       }
     ]
   }

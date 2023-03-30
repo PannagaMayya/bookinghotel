@@ -152,6 +152,8 @@ function Searchbar() {
                   moveRangeOnFirstSelection={false}
                   months={2}
                   ranges={state}
+                  minDate={new Date()}
+                  maxDate={addDays(new Date(), 100)}
                   direction="horizontal"
                   className="select_date"
                 />

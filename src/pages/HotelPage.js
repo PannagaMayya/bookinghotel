@@ -9,10 +9,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBarHotel from "../components/SearchBarHotel";
 import { darkModeContext } from "../StateProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function HotelPage() {
+  const location = useLocation();
   const obj = useContext(darkModeContext);
   const navigate = useNavigate();
+  console.log(location?.state);
   return (
     <div
       className={
@@ -46,7 +48,7 @@ function HotelPage() {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <SearchBarHotel />
+            <SearchBarHotel searchState={location?.state} />
           </div>
         </div>
       </div>
@@ -55,7 +57,7 @@ function HotelPage() {
         className="d-none m-3 d-lg-block p-3 align-self-start bg-warning rounded sticky_style_search"
         style={{ width: "38%" }}
       >
-        <SearchBarHotel />
+        <SearchBarHotel searchState={location?.state} />
       </div>
       <div className="flex-fill flex-column">
         {hotelData.data.hotellist.map((cur, i) => (
