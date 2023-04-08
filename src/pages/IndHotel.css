@@ -7,3 +7,12 @@ img {
 img:hover {
   opacity: 0.9;
 }
+
+thead th {
+  background-color: #3c7be1 !important;
+  color: white;
+}
+
+tbody tr {
+  background-color: #9fc5e8 !important;
+}

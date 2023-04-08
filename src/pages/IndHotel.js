@@ -140,22 +140,22 @@ function IndHotel() {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center flex-wrap text-center m-2 gap-4">
-              <div className="w-25 border border-primary p-2">
+            <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center flex-wrap text-center m-4 gap-4">
+              <div className="border border-primary p-2">
                 <FontAwesomeIcon icon={faWifi} className="me-1" /> Free Wifi
               </div>
-              <div className="w-25 border border-primary p-2">
+              <div className="border border-primary p-2">
                 <FontAwesomeIcon icon={faSnowflake} className="me-1" /> Air
                 Condtioning
               </div>
-              <div className="w-25 border border-primary p-2">
+              <div className="border border-primary p-2">
                 <FontAwesomeIcon icon={faShower} className="me-1" /> Private
                 bathroom
               </div>
-              <div className="w-25 border border-primary p-2">
+              <div className="border border-primary p-2">
                 <FontAwesomeIcon icon={faTv} className="me-1" /> Television
               </div>
-              <div className="w-25 border border-primary p-2">
+              <div className="border border-primary p-2">
                 <FontAwesomeIcon icon={faBanSmoking} className="me-1" />{" "}
                 Non-smoking rooms
               </div>
@@ -224,7 +224,7 @@ function IndHotel() {
             </div>
             <div className="d-flex flex-column">
               <h3>Availability</h3>
-              <table className="table table-info table-striped table-bordered border-primary">
+              <table className="table table-striped table-bordered border-primary">
                 <thead>
                   <tr>
                     <th>Room Type</th>
@@ -236,7 +236,9 @@ function IndHotel() {
                 {curHotel[0].rooms.map((cur, i) => (
                   <tbody>
                     <tr key={i}>
-                      <td rowSpan="2">{cur.roomType}</td>
+                      <td rowSpan="2" className="h6">
+                        {cur.roomType}
+                      </td>
 
                       <td>
                         <FontAwesomeIcon icon={faUser} />
@@ -250,7 +252,13 @@ function IndHotel() {
                           )}
                         </strong>
                       </td>
-                      <td>{cur.roomDoubleAvailable}</td>
+                      <td>
+                        <select value={1} className="w-75">
+                          <option>1</option>
+                          <option>5</option>
+                          <option>{cur.roomDoubleAvailable}</option>
+                        </select>
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -265,7 +273,7 @@ function IndHotel() {
                         </strong>
                       </td>
                       <td>
-                        <select value={1}>
+                        <select value={1} className="w-75">
                           <option>1</option>
                           <option>5</option>
                           <option>{cur.roomSingleAvailable}</option>
