@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import hotelData from "../dataJSON/hotelData.json";
 import ErrorPage from "./ErrorPage";
@@ -27,6 +27,20 @@ function IndHotel() {
   const obj = useContext(darkModeContext);
   const { id } = useParams();
   const curHotel = hotelData.data.hotellist.filter((cur) => id === cur.id);
+  const [rooms, setRooms] = useState({
+    roomDetails: curHotel[0].rooms.map((room, i) => ({
+      [i]: { countArray: [0, 0], price: 0 },
+    })),
+    total: roomDetails.reduce(
+      (tot, present, i) => ({
+        totalCount:
+          tot.totalCount + present[i].countArray[0] + present[i].countArray[1],
+        totalPrice: tot.totalPrice + present[i].price,
+      }),
+      { totalCount: 0, totalPrice: 0 }
+    ),
+  });
+
   return (
     <div className={obj.isDark ? "bg-dark text-white" : "bg-light text-dark"}>
       <div className="container min-vh-100 py-2">
@@ -224,65 +238,134 @@ function IndHotel() {
             </div>
             <div className="d-flex flex-column">
               <h3>Availability</h3>
-              <table className="table table-striped table-bordered border-primary">
-                <thead>
-                  <tr>
-                    <th>Room Type</th>
-                    <th>Sleeps</th>
-                    <th>Price</th>
-                    <th>Rooms</th>
-                  </tr>
-                </thead>
-                {curHotel[0].rooms.map((cur, i) => (
-                  <tbody>
-                    <tr key={i}>
-                      <td rowSpan="2" className="h6">
-                        {cur.roomType}
-                      </td>
-
-                      <td>
-                        <FontAwesomeIcon icon={faUser} />
-                        <FontAwesomeIcon icon={faUser} />
-                      </td>
-                      <td>
-                        <strong className="fs-6">
-                          ₹
-                          {Intl.NumberFormat("en-IN").format(
-                            cur.roomDoubleCost
-                          )}
-                        </strong>
-                      </td>
-                      <td>
-                        <select value={1} className="w-75">
-                          <option>1</option>
-                          <option>5</option>
-                          <option>{cur.roomDoubleAvailable}</option>
-                        </select>
-                      </td>
-                    </tr>
+              <div className="d-flex flex-column flex-lg-row">
+                <table className="table table-striped table-bordered border-primary">
+                  <thead>
                     <tr>
-                      <td>
-                        <FontAwesomeIcon icon={faUser} />
-                      </td>
-                      <td>
-                        <strong className="fs-6">
-                          ₹
-                          {Intl.NumberFormat("en-IN").format(
-                            cur.roomSingleCost
-                          )}
-                        </strong>
-                      </td>
-                      <td>
-                        <select value={1} className="w-75">
-                          <option>1</option>
-                          <option>5</option>
-                          <option>{cur.roomSingleAvailable}</option>
-                        </select>
-                      </td>
+                      <th>Room Type</th>
+                      <th>Sleeps</th>
+                      <th>Price</th>
+                      <th>Rooms</th>
                     </tr>
-                  </tbody>
-                ))}
-              </table>
+                  </thead>
+                  {curHotel[0].rooms.map((cur, i) => (
+                    <tbody>
+                      <tr key={i}>
+                        <td rowSpan="2" className="h6">
+                          {cur.roomType}
+                        </td>
+
+                        <td>
+                          <FontAwesomeIcon icon={faUser} />
+                          <FontAwesomeIcon icon={faUser} />
+                        </td>
+                        <td>
+                          <strong className="fs-6">
+                            ₹
+                            {Intl.NumberFormat("en-IN").format(
+                              cur.roomDoubleCost
+                            )}
+                          </strong>
+                        </td>
+                        <td>
+                          <select value={0} className="w-75">
+                            {[...Array(cur.roomDoubleAvailable + 1).keys()].map(
+                              (pre, i) => (
+                                <option
+                                  value={pre}
+                                  key={i}
+                                  onChange={(e) => {
+                                    setRooms((obj) => ({
+                                      ...obj,
+                                      roomDetails: obj.roomDetails.map(
+                                        (present, i) => p
+                                      ),
+                                      roomprice:
+                                        obj.roomprice + cur.roomDoubleCost,
+                                    }));
+                                  }}
+                                >
+                                  {pre}
+                                </option>
+                              )
+                            )}
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <FontAwesomeIcon icon={faUser} />
+                        </td>
+                        <td>
+                          <strong className="fs-6">
+                            ₹
+                            {Intl.NumberFormat("en-IN").format(
+                              cur.roomSingleCost
+                            )}
+                          </strong>
+                        </td>
+                        <td>
+                          <select value={0} className="w-75">
+                            {[...Array(cur.roomSingleAvailable + 1).keys()].map(
+                              (pre, i) => (
+                                <option value={pre} key={i}>
+                                  {pre}
+                                </option>
+                              )
+                            )}
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                  ))}
+                </table>
+                <div
+                  className="text-dark p-3 ms-2 rounded h-100"
+                  style={{ minWidth: "250px", backgroundColor: "#9fc5e8" }}
+                >
+                  <p>
+                    <strong>{rooms.total.totalCount} </strong>rooms for
+                  </p>
+                  <h4>
+                    ₹{Intl.NumberFormat("en-IN").format(rooms.total.totalPrice)}
+                  </h4>
+
+                  <p className="fw-light">
+                    + ₹
+                    {Intl.NumberFormat("en-IN").format(
+                      rooms.total.totalPrice * 0.18
+                    )}{" "}
+                    taxes and charges
+                  </p>
+                  <button
+                    style={{
+                      width: "100%",
+                      fontSize: "0.9rem",
+                      padding: "0.4rem",
+                      backgroundColor: "#3c7be1",
+                      color: "white",
+                      fontWeight: "500",
+                      border: "none",
+                    }}
+                  >
+                    I'll Reserve
+                  </button>
+                  <ul className="p-1">
+                    <li>Confirmation is immediate</li>
+                    <li>No Booking fees!</li>
+                  </ul>
+                  <p
+                    style={{
+                      color: "green",
+                      padding: "1px 4px",
+                      border: "1px solid green",
+                      borderRadius: "5px",
+                    }}
+                  >
+                    <strong>No credit card</strong> needed!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
