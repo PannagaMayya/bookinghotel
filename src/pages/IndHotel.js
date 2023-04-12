@@ -27,20 +27,30 @@ function IndHotel() {
   const obj = useContext(darkModeContext);
   const { id } = useParams();
   const curHotel = hotelData.data.hotellist.filter((cur) => id === cur.id);
+
   const [rooms, setRooms] = useState({
     roomDetails: curHotel[0].rooms.map((room, i) => ({
-      [i]: { countArray: [0, 0], price: 0 },
+      id: room.roomType,
+      countArray: [0, 0],
+      price: [0, 0],
     })),
-    total: roomDetails.reduce(
+  });
+  const roomTotal = (inp) => {
+    let val = rooms.roomDetails.reduce(
       (tot, present, i) => ({
         totalCount:
-          tot.totalCount + present[i].countArray[0] + present[i].countArray[1],
-        totalPrice: tot.totalPrice + present[i].price,
+          tot.totalCount + present.countArray[0] + present.countArray[1],
+        totalPrice: tot.totalPrice + present.price[0] + present.price[1],
       }),
       { totalCount: 0, totalPrice: 0 }
-    ),
-  });
+    );
+    return inp === "rooms" ? val.totalCount : val.totalPrice;
+  };
+  const selectHandle = (roomType, index) => {
+    let val = rooms.roomDetails.filter((present) => present.id === roomType);
 
+    return val[0].countArray[index];
+  };
   return (
     <div className={obj.isDark ? "bg-dark text-white" : "bg-light text-dark"}>
       <div className="container min-vh-100 py-2">
@@ -58,6 +68,9 @@ function IndHotel() {
                     color: "white",
                     fontWeight: "500",
                     border: "none",
+                  }}
+                  onClick={() => {
+                    document.getElementById("hotelTable").scrollIntoView();
                   }}
                 >
                   Reserve
@@ -231,14 +244,18 @@ function IndHotel() {
                     fontWeight: "500",
                     border: "none",
                   }}
+                  onClick={() => {
+                    document.getElementById("hotelTable").scrollIntoView();
+                  }}
                 >
+                  {" "}
                   Reserve Now
                 </button>
               </div>
             </div>
             <div className="d-flex flex-column">
               <h3>Availability</h3>
-              <div className="d-flex flex-column flex-lg-row">
+              <div className="d-flex flex-column flex-lg-row" id="hotelTable">
                 <table className="table table-striped table-bordered border-primary">
                   <thead>
                     <tr>
@@ -248,92 +265,129 @@ function IndHotel() {
                       <th>Rooms</th>
                     </tr>
                   </thead>
-                  {curHotel[0].rooms.map((cur, i) => (
-                    <tbody>
-                      <tr key={i}>
-                        <td rowSpan="2" className="h6">
-                          {cur.roomType}
-                        </td>
+                  <tbody>
+                    {curHotel[0].rooms.map((cur, i) => (
+                      <React.Fragment key={i}>
+                        <tr key={i + "_tablefirstrow"}>
+                          <td rowSpan="2" className="h6">
+                            {cur.roomType}
+                          </td>
 
-                        <td>
-                          <FontAwesomeIcon icon={faUser} />
-                          <FontAwesomeIcon icon={faUser} />
-                        </td>
-                        <td>
-                          <strong className="fs-6">
-                            ₹
-                            {Intl.NumberFormat("en-IN").format(
-                              cur.roomDoubleCost
-                            )}
-                          </strong>
-                        </td>
-                        <td>
-                          <select value={0} className="w-75">
-                            {[...Array(cur.roomDoubleAvailable + 1).keys()].map(
-                              (pre, i) => (
-                                <option
-                                  value={pre}
-                                  key={i}
-                                  onChange={(e) => {
-                                    setRooms((obj) => ({
-                                      ...obj,
-                                      roomDetails: obj.roomDetails.map(
-                                        (present, i) => p
-                                      ),
-                                      roomprice:
-                                        obj.roomprice + cur.roomDoubleCost,
-                                    }));
-                                  }}
-                                >
+                          <td>
+                            <FontAwesomeIcon icon={faUser} />
+                            <FontAwesomeIcon icon={faUser} />
+                          </td>
+                          <td>
+                            <strong className="fs-6">
+                              ₹
+                              {Intl.NumberFormat("en-IN").format(
+                                cur.roomDoubleCost
+                              )}
+                            </strong>
+                          </td>
+                          <td>
+                            <select
+                              value={selectHandle(cur.roomType, 1)}
+                              className="w-75"
+                              onChange={(e) => {
+                                setRooms((obj) => ({
+                                  roomDetails: obj.roomDetails.map(
+                                    (present, i) =>
+                                      present.id === cur.roomType
+                                        ? {
+                                            ...present,
+                                            countArray: [
+                                              present.countArray[0],
+                                              e.target.value * 1, //converting to number
+                                            ],
+                                            price: [
+                                              present.price[0],
+                                              e.target.value *
+                                                cur.roomDoubleCost,
+                                            ],
+                                          }
+                                        : present
+                                  ),
+                                }));
+                              }}
+                            >
+                              {[
+                                ...Array(cur.roomDoubleAvailable + 1).keys(),
+                              ].map((pre, i) => (
+                                <option value={pre} key={i + "_double"}>
                                   {pre}
                                 </option>
-                              )
-                            )}
-                          </select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <FontAwesomeIcon icon={faUser} />
-                        </td>
-                        <td>
-                          <strong className="fs-6">
-                            ₹
-                            {Intl.NumberFormat("en-IN").format(
-                              cur.roomSingleCost
-                            )}
-                          </strong>
-                        </td>
-                        <td>
-                          <select value={0} className="w-75">
-                            {[...Array(cur.roomSingleAvailable + 1).keys()].map(
-                              (pre, i) => (
-                                <option value={pre} key={i}>
+                              ))}
+                            </select>
+                          </td>
+                        </tr>
+                        <tr key={i + "_tablesecondrow"}>
+                          <td>
+                            <FontAwesomeIcon icon={faUser} />
+                          </td>
+                          <td>
+                            <strong className="fs-6">
+                              ₹
+                              {Intl.NumberFormat("en-IN").format(
+                                cur.roomSingleCost
+                              )}
+                            </strong>
+                          </td>
+                          <td>
+                            <select
+                              value={selectHandle(cur.roomType, 0)}
+                              className="w-75"
+                              onChange={(e) => {
+                                setRooms((obj) => ({
+                                  roomDetails: obj.roomDetails.map(
+                                    (present, i) =>
+                                      present.id === cur.roomType
+                                        ? {
+                                            ...present,
+                                            countArray: [
+                                              e.target.value * 1, //converting to number
+                                              present.countArray[1],
+                                            ],
+                                            price: [
+                                              e.target.value *
+                                                cur.roomSingleCost,
+                                              present.price[1],
+                                            ],
+                                          }
+                                        : present
+                                  ),
+                                }));
+                              }}
+                            >
+                              {[
+                                ...Array(cur.roomSingleAvailable + 1).keys(),
+                              ].map((pre, i) => (
+                                <option value={pre} key={i + "_single"}>
                                   {pre}
                                 </option>
-                              )
-                            )}
-                          </select>
-                        </td>
-                      </tr>
-                    </tbody>
-                  ))}
+                              ))}
+                            </select>
+                          </td>
+                        </tr>
+                      </React.Fragment>
+                    ))}
+                  </tbody>
                 </table>
                 <div
                   className="text-dark p-3 ms-2 rounded h-100"
                   style={{ minWidth: "250px", backgroundColor: "#9fc5e8" }}
                 >
                   <p>
-                    <strong>{rooms.total.totalCount} </strong>rooms for
+                    <strong>{roomTotal("rooms")} </strong>rooms for
                   </p>
                   <h4>
-                    ₹{Intl.NumberFormat("en-IN").format(rooms.total.totalPrice)}
+                    ₹{Intl.NumberFormat("en-IN").format(roomTotal("price"))}
                   </h4>
 
                   <p className="fw-light">
                     + ₹
                     {Intl.NumberFormat("en-IN").format(
-                      rooms.total.totalPrice * 0.18
+                      Math.round(roomTotal("price") * 0.18)
                     )}{" "}
                     taxes and charges
                   </p>
@@ -348,11 +402,15 @@ function IndHotel() {
                       border: "none",
                     }}
                   >
-                    I'll Reserve
+                    I'll Serve
                   </button>
-                  <ul className="p-1">
-                    <li>Confirmation is immediate</li>
-                    <li>No Booking fees!</li>
+                  <ul>
+                    <li>
+                      <small>Confirmation is immediate</small>
+                    </li>
+                    <li>
+                      <small>No Booking fees!</small>
+                    </li>
                   </ul>
                   <p
                     style={{
