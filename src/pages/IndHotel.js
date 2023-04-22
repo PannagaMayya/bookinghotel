@@ -35,6 +35,7 @@ function IndHotel() {
       price: [0, 0],
     })),
   });
+  const [error, setError] = useState(null);
   const roomTotal = (inp) => {
     let val = rooms.roomDetails.reduce(
       (tot, present, i) => ({
@@ -290,25 +291,29 @@ function IndHotel() {
                               value={selectHandle(cur.roomType, 1)}
                               className="w-75"
                               onChange={(e) => {
-                                setRooms((obj) => ({
-                                  roomDetails: obj.roomDetails.map(
-                                    (present, i) =>
-                                      present.id === cur.roomType
-                                        ? {
-                                            ...present,
-                                            countArray: [
-                                              present.countArray[0],
-                                              e.target.value * 1, //converting to number
-                                            ],
-                                            price: [
-                                              present.price[0],
-                                              e.target.value *
-                                                cur.roomDoubleCost,
-                                            ],
-                                          }
-                                        : present
-                                  ),
-                                }));
+                                roomTotal("rooms") + e.target.value * 1 <= 10
+                                  ? setRooms((obj) => ({
+                                      roomDetails: obj.roomDetails.map(
+                                        (present, i) =>
+                                          present.id === cur.roomType
+                                            ? {
+                                                ...present,
+                                                countArray: [
+                                                  present.countArray[0],
+                                                  e.target.value * 1, //converting to number
+                                                ],
+                                                price: [
+                                                  present.price[0],
+                                                  e.target.value *
+                                                    cur.roomDoubleCost,
+                                                ],
+                                              }
+                                            : present
+                                      ),
+                                    }))
+                                  : setError(
+                                      "Exceeds Maximum Reservation Limit!!!"
+                                    );
                               }}
                             >
                               {[
@@ -338,25 +343,29 @@ function IndHotel() {
                               value={selectHandle(cur.roomType, 0)}
                               className="w-75"
                               onChange={(e) => {
-                                setRooms((obj) => ({
-                                  roomDetails: obj.roomDetails.map(
-                                    (present, i) =>
-                                      present.id === cur.roomType
-                                        ? {
-                                            ...present,
-                                            countArray: [
-                                              e.target.value * 1, //converting to number
-                                              present.countArray[1],
-                                            ],
-                                            price: [
-                                              e.target.value *
-                                                cur.roomSingleCost,
-                                              present.price[1],
-                                            ],
-                                          }
-                                        : present
-                                  ),
-                                }));
+                                roomTotal("rooms") + e.target.value * 1 <= 10
+                                  ? setRooms((obj) => ({
+                                      roomDetails: obj.roomDetails.map(
+                                        (present, i) =>
+                                          present.id === cur.roomType
+                                            ? {
+                                                ...present,
+                                                countArray: [
+                                                  e.target.value * 1, //converting to number
+                                                  present.countArray[1],
+                                                ],
+                                                price: [
+                                                  e.target.value *
+                                                    cur.roomSingleCost,
+                                                  present.price[1],
+                                                ],
+                                              }
+                                            : present
+                                      ),
+                                    }))
+                                  : setError(
+                                      "Exceeds Maximum Reservation Limit!!!"
+                                    );
                               }}
                             >
                               {[
@@ -425,6 +434,11 @@ function IndHotel() {
                 </div>
               </div>
             </div>
+            {error && (
+              <div className="alert alert-danger" style={{ marginBottom: 0 }}>
+                <strong>Reservation Limit Reached</strong>
+              </div>
+            )}
           </div>
         ) : (
           <ErrorPage />
