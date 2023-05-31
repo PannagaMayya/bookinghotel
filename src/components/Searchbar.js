@@ -46,7 +46,7 @@ function Searchbar() {
   const obj = useContext(darkModeContext);
   return (
     <div
-      className={obj.isDark ? "bg-dark" : "bg-light"}
+      className={obj.isDark ? "bg-darkC" : "bg-light"}
       style={{ zIndex: "1060", position: "relative" }}
     >
       <div className="container-lg">

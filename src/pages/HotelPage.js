@@ -19,8 +19,8 @@ function HotelPage() {
     <div
       className={
         obj.isDark
-          ? "container-xxl min-vh-100 d-flex p-2 bg-dark text-white"
-          : "container-xxl min-vh-100 d-flex p-2 bg-light text-dark"
+          ? "container-xxl min-vh-100 d-flex p-2 bg-darkC text-white"
+          : "container-xxl min-vh-100 d-flex p-2 bg-lightC text-dark"
       }
     >
       <div className="d-block d-lg-none justify-content-center p-2 bg-warning ">

@@ -52,8 +52,9 @@ function IndHotel() {
 
     return val[0].countArray[index];
   };
+
   return (
-    <div className={obj.isDark ? "bg-dark text-white" : "bg-light text-dark"}>
+    <div className={obj.isDark ? "bg-darkC text-white" : "bg-light text-dark"}>
       <div className="container min-vh-100 py-2">
         {curHotel.length ? (
           <div>
@@ -97,7 +98,7 @@ function IndHotel() {
                 <div className="col-4 col-lg-3 row">
                   {[
                     "https://cf.bstatic.com/xdata/images/hotel/max1024x768/34933414.jpg?k=4d3a063f96247c56c6215cd329483a4a3d82461a8b666accf8b04596013a938d&o=&hp=1",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/245746602.jpg?k=7f53cab4afb3d25283e6c57b1e862b541511112a9ff0b985ec36ca2c0c370f27&o=&hp=1",
+                    "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?cs=srgb&dl=city-sky-sunset-261102.jpg&fm=jpg",
                   ].map((cur, i) => (
                     <img
                       src={cur}
@@ -216,7 +217,7 @@ function IndHotel() {
                 </p>
               </div>
               <div
-                className="text-dark p-3 ms-2 rounded h-100"
+                className="text-dark p-3 rounded h-100"
                 style={{ minWidth: "350px", backgroundColor: "#9fc5e8" }}
               >
                 <h5>Property Highlights</h5>
@@ -256,6 +257,11 @@ function IndHotel() {
             </div>
             <div className="d-flex flex-column">
               <h3>Availability</h3>
+              {error && (
+                <div className="alert alert-danger">
+                  <strong>Reservation Limit Reached</strong>
+                </div>
+              )}
               <div className="d-flex flex-column flex-lg-row" id="hotelTable">
                 <table className="table table-striped table-bordered border-primary">
                   <thead>
@@ -383,7 +389,7 @@ function IndHotel() {
                   </tbody>
                 </table>
                 <div
-                  className="text-dark p-3 ms-2 rounded h-100"
+                  className="text-dark p-3 mx-2 rounded h-100"
                   style={{ minWidth: "250px", backgroundColor: "#9fc5e8" }}
                 >
                   <p>
@@ -434,11 +440,6 @@ function IndHotel() {
                 </div>
               </div>
             </div>
-            {error && (
-              <div className="alert alert-danger" style={{ marginBottom: 0 }}>
-                <strong>Reservation Limit Reached</strong>
-              </div>
-            )}
           </div>
         ) : (
           <ErrorPage />

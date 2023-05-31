@@ -8,7 +8,7 @@ function ErrorPage() {
     <div
       className={
         obj.isDark
-          ? "bg-dark min-vh-100 text-center p-5"
+          ? "bg-darkC min-vh-100 text-center p-5"
           : "bg-light min-vh-100 text-center p-5"
       }
     >

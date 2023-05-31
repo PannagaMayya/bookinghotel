@@ -4,7 +4,7 @@ import { darkModeContext } from "../StateProvider";
 function HomePage() {
   const obj = useContext(darkModeContext);
   return (
-    <div className={obj.isDark ? "bg-dark text-white" : "bg-light text-dark"}>
+    <div className={obj.isDark ? "bg-darkC text-white" : "bg-light text-dark"}>
       <div className="container">
         <h2>Explore India</h2>
         <p>These popular destinations have a lot to offer</p>
@@ -19,7 +19,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -35,7 +35,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -51,7 +51,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -71,7 +71,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -87,7 +87,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -103,7 +103,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -123,7 +123,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -139,7 +139,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -155,7 +155,7 @@ function HomePage() {
                 <div
                   className={
                     obj.isDark
-                      ? "card d-block bg-dark text-white"
+                      ? "card d-block bg-darkC text-white"
                       : "card d-block bg-light text-dark"
                   }
                 >
@@ -247,7 +247,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white "
+                ? "col card bg-darkC text-white "
                 : "col card bg-light text-dark"
             }
           >
@@ -263,7 +263,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white "
+                ? "col card bg-darkC text-white "
                 : "col card bg-light text-dark"
             }
           >
@@ -279,7 +279,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white "
+                ? "col card bg-darkC text-white "
                 : "col card bg-light text-dark"
             }
           >
@@ -295,7 +295,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white "
+                ? "col card bg-darkC text-white "
                 : "col card bg-light text-dark"
             }
           >
@@ -311,7 +311,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white "
+                ? "col card bg-darkC text-white "
                 : "col card bg-light text-dark"
             }
           >
@@ -327,7 +327,7 @@ function HomePage() {
           <div
             className={
               obj.isDark
-                ? "col card bg-dark text-white"
+                ? "col card bg-darkC text-white"
                 : "col card bg-light text-dark"
             }
           >

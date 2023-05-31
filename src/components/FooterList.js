@@ -5,7 +5,7 @@ function FooterList({ isDark }) {
     <div
       className={
         isDark
-          ? "text-primary bg-dark d-flex justify-content-around p-2"
+          ? "text-primary bg-darkC d-flex justify-content-around p-2"
           : "text-primary bg-white d-flex justify-content-around p-2"
       }
     >
