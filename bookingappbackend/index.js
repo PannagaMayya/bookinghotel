@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoute from "./routes/auth.js";
+import authRoute from "./routes/bookingRoutes/auth.js";
 import hotelRoute from "./routes/hotels.js";
 import roomRoute from "./routes/rooms.js";
 import userRoute from "./routes/users.js";
@@ -26,15 +26,15 @@ mongoose.connection.on("disconnected", () => {
 //Middleware
 app.use(cookieParser());
 app.use(express.json());
-app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/users", userRoute);
-app.use("/api/v1/hotels", hotelRoute);
-app.use("/api/v1/rooms", roomRoute);
+app.use("/bookingApi/v1/auth", authRoute);
+app.use("/bookingApi/v1/users", userRoute);
+app.use("/bookingApi/v1/hotels", hotelRoute);
+app.use("/bookingApi/v1/rooms", roomRoute);
 
 app.use((err, req, res, next) => {
-  console.log("Error");
   const errStatus = err.status || 500;
   const errMessage = err.message || "Something went wrong";
+  console.log(`Error - ${err.status} - ${err.message}`);
   return res
     .status(errStatus)
     .json({ success: false, status: errStatus, message: errMessage });
@@ -45,5 +45,5 @@ app.listen(8888, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hi");
+  res.send("Server is running.......");
 });

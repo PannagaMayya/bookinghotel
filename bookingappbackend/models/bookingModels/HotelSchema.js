@@ -13,6 +13,20 @@ const HotelSchema = new Schema({
   descriptionGreenheading: { type: String },
   descriptionGreen: { type: String },
   imglink: { type: String, required: true },
+  rooms: {
+    type: [
+      {
+        roomType: String,
+        roomFeatures: [String],
+        roomDescription: String,
+        roomDoubleAvailable: Number,
+        roomDoubleCost: Number,
+        roomSingleAvailable: Number,
+        roomSingleCost: Number,
+      },
+    ],
+    required: true,
+  },
 });
 
 export default mongoose.model("HotelScehma", HotelSchema);

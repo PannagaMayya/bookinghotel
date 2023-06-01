@@ -12,7 +12,10 @@ thead th {
   background-color: #3c7be1 !important;
   color: white;
 }
-
+.roomFeatures {
+  background-color: #198754;
+  margin: 2px 2px;
+}
 tbody tr {
   background-color: #edf7ff !important;
 }

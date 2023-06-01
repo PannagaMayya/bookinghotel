@@ -1,5 +1,8 @@
 import express from "express";
-import { getUserById, getUsers } from "../controllers/userController.js";
+import {
+  getUserById,
+  getUsers,
+} from "../../controllers/bookingControllers/userController.js";
 
 import { createError } from "../utils/error.js";
 import { verifyToken, verifyUser } from "../utils/verifyToken.js";

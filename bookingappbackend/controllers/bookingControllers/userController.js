@@ -1,4 +1,4 @@
-import UserSchema from "../models/UserSchema.js";
+import UserSchema from "../../models/bookingModels/UserSchema.js";
 
 export const getUserById = async (req, res, next) => {
   try {

@@ -47,6 +47,14 @@ function IndHotel() {
     );
     return inp === "rooms" ? val.totalCount : val.totalPrice;
   };
+  const checkErr = () => {
+    if (!error) {
+      setError("Error");
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
+    }
+  };
   const selectHandle = (roomType, index) => {
     let val = rooms.roomDetails.filter((present) => present.id === roomType);
 
@@ -255,15 +263,15 @@ function IndHotel() {
                 </button>
               </div>
             </div>
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column" id="hotelTable">
               <h3>Availability</h3>
               {error && (
                 <div className="alert alert-danger">
                   <strong>Reservation Limit Reached</strong>
                 </div>
               )}
-              <div className="d-flex flex-column flex-lg-row" id="hotelTable">
-                <table className="table table-striped table-bordered border-primary">
+              <div className="d-flex flex-column flex-lg-row">
+                <table className="table table-responsive table-striped table-bordered border-primary">
                   <thead>
                     <tr>
                       <th>Room Type</th>
@@ -276,8 +284,22 @@ function IndHotel() {
                     {curHotel[0].rooms.map((cur, i) => (
                       <React.Fragment key={i}>
                         <tr key={i + "_tablefirstrow"}>
-                          <td rowSpan="2" className="h6">
-                            {cur.roomType}
+                          <td rowSpan="2" className="h6 w-50">
+                            <div className="d-flex flex-column">
+                              <h6 className="text-decoration-underline">
+                                {cur.roomType}
+                              </h6>
+                              <div className="my-2">
+                                {cur.roomFeatures.map((e, i) => (
+                                  <span
+                                    key={i}
+                                    className="badge badge-success roomFeatures"
+                                  >
+                                    {e}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
                           </td>
 
                           <td>
@@ -297,7 +319,11 @@ function IndHotel() {
                               value={selectHandle(cur.roomType, 1)}
                               className="w-75"
                               onChange={(e) => {
-                                roomTotal("rooms") + e.target.value * 1 <= 10
+                                roomTotal("rooms") +
+                                  (e.target.value -
+                                    selectHandle(cur.roomType, 1)) *
+                                    1 <=
+                                10
                                   ? setRooms((obj) => ({
                                       roomDetails: obj.roomDetails.map(
                                         (present, i) =>
@@ -317,9 +343,7 @@ function IndHotel() {
                                             : present
                                       ),
                                     }))
-                                  : setError(
-                                      "Exceeds Maximum Reservation Limit!!!"
-                                    );
+                                  : checkErr();
                               }}
                             >
                               {[
@@ -349,7 +373,11 @@ function IndHotel() {
                               value={selectHandle(cur.roomType, 0)}
                               className="w-75"
                               onChange={(e) => {
-                                roomTotal("rooms") + e.target.value * 1 <= 10
+                                roomTotal("rooms") +
+                                  (e.target.value -
+                                    selectHandle(cur.roomType, 0)) *
+                                    1 <=
+                                10
                                   ? setRooms((obj) => ({
                                       roomDetails: obj.roomDetails.map(
                                         (present, i) =>
@@ -369,9 +397,7 @@ function IndHotel() {
                                             : present
                                       ),
                                     }))
-                                  : setError(
-                                      "Exceeds Maximum Reservation Limit!!!"
-                                    );
+                                  : checkErr();
                               }}
                             >
                               {[

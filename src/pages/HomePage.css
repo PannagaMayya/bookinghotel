@@ -6,7 +6,10 @@
   height: 150px;
   object-fit: cover;
 }
-
+.card {
+  background-color: #121212 !important;
+  border-bottom: 1px solid white !important;
+}
 .card > div > h5 {
   font-size: 2vw;
   font-weight: 600;

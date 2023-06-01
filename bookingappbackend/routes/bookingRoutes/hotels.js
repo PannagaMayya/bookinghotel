@@ -3,7 +3,7 @@ import {
   createHotel,
   getHotelById,
   getHotels,
-} from "../controllers/hotelController.js";
+} from "../../controllers/bookingControllers/hotelController.js";
 
 import { createError } from "../utils/error.js";
 

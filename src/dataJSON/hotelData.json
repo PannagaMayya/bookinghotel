@@ -17,6 +17,16 @@
         "rooms": [
           {
             "roomType": "Room King Bed",
+            "roomFeatures": [
+              "Free toilteries",
+              "Shower",
+              "Toilet",
+              "Towles",
+              "TV",
+              "Telephone",
+              "Fan",
+              "Hand sanitiser"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 2,
             "roomDoubleCost": 11534,
@@ -25,6 +35,18 @@
           },
           {
             "roomType": "Deluxe Room King Bed",
+            "roomFeatures": [
+              "Drying rack for clothing",
+              "Shower",
+              "Toilet",
+              "Linen",
+              "Socket near the bed",
+              "Seating Area",
+              "TV",
+              "Wardrobe",
+              "Fan",
+              "Hand sanitiser"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 4,
             "roomDoubleCost": 12534,
@@ -33,6 +55,19 @@
           },
           {
             "roomType": "Luxury Room King Bed",
+            "roomFeatures": [
+              "Bath or Shower",
+              "Toliet",
+              "Bidet",
+              "Towles",
+              "Private Kitchen",
+              "Seating Area",
+              "LED TV",
+              "Wardrobe",
+              "Balcony",
+              "Fan",
+              "Wifi"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 2,
             "roomDoubleCost": 18534,
@@ -56,6 +91,16 @@
         "rooms": [
           {
             "roomType": "Room King Bed",
+            "roomFeatures": [
+              "Kitchen",
+              "Shower",
+              "Toilet",
+              "Towles",
+              "Desk",
+              "Flat-screen TV",
+              "Wardrobe",
+              "Fan"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 3,
             "roomDoubleCost": 8534,
@@ -64,6 +109,18 @@
           },
           {
             "roomType": "Deluxe Room King Bed",
+            "roomFeatures": [
+              "Private Kitchen",
+              "Washing machine",
+              "Toilet",
+              "Towles",
+              "Heating",
+              "TV",
+              "Microwave",
+              "Fan",
+              "Refrigerator",
+              "Hand sanitiser"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 3,
             "roomDoubleCost": 10114,
@@ -72,6 +129,22 @@
           },
           {
             "roomType": "Luxury Room King Bed",
+            "roomFeatures": [
+              "Drying rack for clothing",
+              "Terrace",
+              "Shower",
+              "Toilet",
+              "Towles",
+              "Seating Area",
+              "TV",
+              "Dish washer",
+              "Refrigerator",
+              "Microwave",
+              "Wardrobe",
+              "Balcony",
+              "AC",
+              "Hand sanitiser"
+            ],
             "roomDescription": "1 Lorem ipsum dolor",
             "roomDoubleAvailable": 3,
             "roomDoubleCost": 19546,
