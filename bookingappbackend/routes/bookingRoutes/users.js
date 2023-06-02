@@ -4,8 +4,8 @@ import {
   getUsers,
 } from "../../controllers/bookingControllers/userController.js";
 
-import { createError } from "../utils/error.js";
-import { verifyToken, verifyUser } from "../utils/verifyToken.js";
+import { createError } from "../../utils/error.js";
+import { verifyToken, verifyUser } from "../../utils/verifyToken.js";
 
 const router = express.Router();
 router.get("/checkAuth", verifyToken, (req, res, next) => {

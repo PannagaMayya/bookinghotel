@@ -2,10 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoute from "./routes/bookingRoutes/auth.js";
-import hotelRoute from "./routes/hotels.js";
-import roomRoute from "./routes/rooms.js";
-import userRoute from "./routes/users.js";
+import hotelRoute from "./routes/bookingRoutes/hotels.js";
+import roomRoute from "./routes/bookingRoutes/rooms.js";
+import userRoute from "./routes/bookingRoutes/users.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 const app = express();
 dotenv.config();
 
@@ -24,6 +25,7 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //Middleware
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use("/bookingApi/v1/auth", authRoute);

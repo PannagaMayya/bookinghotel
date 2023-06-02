@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import hotelData from "../dataJSON/hotelData.json";
 import "./HotelPage.css";
 import {
@@ -10,11 +10,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchBarHotel from "../components/SearchBarHotel";
 import { darkModeContext } from "../StateProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import useFetch from "../hooks/useFetch";
 function HotelPage() {
-  const location = useLocation();
+  const [location, setLocation] = useState(useLocation());
+  const handleLocation = (val) => {
+    setLocation({
+      ...location,
+      state: { ...location.state, destination: val },
+    });
+  };
   const obj = useContext(darkModeContext);
   const navigate = useNavigate();
-  console.log(location?.state);
+
+  const { data, loading, error } = useFetch(
+    "/hotels/getHotelsByCity?key=" + (location?.state?.destination || "")
+  );
+
   return (
     <div
       className={
@@ -48,7 +59,10 @@ function HotelPage() {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <SearchBarHotel searchState={location?.state} />
+            <SearchBarHotel
+              searchState={location?.state}
+              handleLocation={handleLocation}
+            />
           </div>
         </div>
       </div>
@@ -57,10 +71,16 @@ function HotelPage() {
         className="d-none m-3 d-lg-block p-3 align-self-start bg-warning rounded sticky_style_search"
         style={{ width: "38%" }}
       >
-        <SearchBarHotel searchState={location?.state} />
+        <SearchBarHotel
+          searchState={location?.state}
+          handleLocation={handleLocation}
+        />
       </div>
       <div className="flex-fill flex-column">
-        {hotelData.data.hotellist.map((cur, i) => (
+        <div className="border border-danger rounded m-4 px-2 py-5">
+          <h2 className="fw-normal">No Results..... :(</h2>
+        </div>
+        {(error ? hotelData.data.hotellist : data).map((cur, i) => (
           <div
             className="d-flex flex-column border border-primary rounded mx-2 my-4 p-2"
             key={cur.id}

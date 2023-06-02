@@ -23,6 +23,7 @@ export const registerUser = async (req, res, next) => {
 export const loginUser = async (req, res, next) => {
   try {
     const user = await UserSchema.findOne({ username: req.body.username });
+
     if (!user) return next(createError(404, "User Not found"));
     //Separating salt from DBHash and prepend to requested password and then compare both hashes
     const isPasswordCorrect = await bcrypt.compare(

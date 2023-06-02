@@ -3,14 +3,15 @@ import {
   createHotel,
   getHotelById,
   getHotels,
+  getHotelsByCity,
 } from "../../controllers/bookingControllers/hotelController.js";
 
-import { createError } from "../utils/error.js";
+import { verifyAuth } from "../../utils/verifyAuth.js";
 
 const router = express.Router();
 
-router.post("/", createHotel);
-
+router.post("/", verifyAuth, createHotel);
+router.get("/getHotelsByCity", getHotelsByCity);
 router.get("/:id", getHotelById);
 
 router.get("/", getHotels);

@@ -4,8 +4,12 @@ import { addDays } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faUser } from "@fortawesome/free-solid-svg-icons";
 import { DateRange } from "react-date-range";
-function SearchBarHotel({ searchState }) {
-  const [destination, setDestination] = useState(searchState.destination || "");
+
+function SearchBarHotel({ searchState, handleLocation }) {
+  const [destination, setDestination] = useState(
+    searchState?.destination || ""
+  );
+
   const [state, setState] = useState([
     {
       startDate: searchState?.actulDatetoPass?.startDate || new Date(),
@@ -118,7 +122,14 @@ function SearchBarHotel({ searchState }) {
             isHotelPage={true}
           />
         </div>
-        <button className="searchHotel_button">Search</button>
+        <button
+          className="searchHotel_button"
+          onClick={(e) => {
+            handleLocation(destination);
+          }}
+        >
+          Search
+        </button>
       </div>
     </>
   );

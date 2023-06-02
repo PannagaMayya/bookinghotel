@@ -26,3 +26,14 @@ export const getHotels = async (req, res, next) => {
     next(err);
   }
 };
+
+export const getHotelsByCity = async (req, res, next) => {
+  try {
+    const getHotelsByCity = await HotelSchema.find({
+      taggedCity: { $regex: req.query.key, $options: "i" },
+    });
+    res.status(200).json(getHotelsByCity);
+  } catch (err) {
+    next(err);
+  }
+};

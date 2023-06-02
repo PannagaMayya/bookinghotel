@@ -2,7 +2,9 @@ import UserSchema from "../../models/bookingModels/UserSchema.js";
 
 export const getUserById = async (req, res, next) => {
   try {
-    const getUser = await UserSchema.findById(req.params.id);
+    const getUser = await UserSchema.findById(req.params.id, {
+      password: false,
+    });
     res.status(200).json(getUser);
   } catch (err) {
     next(err);
