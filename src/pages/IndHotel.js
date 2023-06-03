@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { darkModeContext } from "../StateProvider";
-
+import useFetch from "../hooks/useFetch";
 function IndHotel() {
   const images = [
     "https://cf.bstatic.com/xdata/images/hotel/max1024x768/274545386.jpg?k=e2eece9d117ac05fa248c98a383827fdefb8330883064a91a0f7b30b0a2327f3&o=&hp=1",
@@ -26,18 +26,24 @@ function IndHotel() {
   ];
   const obj = useContext(darkModeContext);
   const { id } = useParams();
-  const curHotel = hotelData.data.hotellist.filter((cur) => id === cur.id);
+
+  const { data, loading, error } = useFetch("/hotels/" + id);
+
+  const curHotel =
+    data?.length == 0 || data == null
+      ? hotelData.data.hotellist.filter((cur) => id === cur.id)
+      : [data];
 
   const [rooms, setRooms] = useState({
-    roomDetails: curHotel[0].rooms.map((room, i) => ({
+    roomDetails: curHotel[0]?.rooms?.map((room, i) => ({
       id: room.roomType,
       countArray: [0, 0],
       price: [0, 0],
     })),
   });
-  const [error, setError] = useState(null);
+  const [err, setError] = useState(null);
   const roomTotal = (inp) => {
-    let val = rooms.roomDetails.reduce(
+    let val = rooms.roomDetails?.reduce(
       (tot, present, i) => ({
         totalCount:
           tot.totalCount + present.countArray[0] + present.countArray[1],
@@ -45,18 +51,18 @@ function IndHotel() {
       }),
       { totalCount: 0, totalPrice: 0 }
     );
-    return inp === "rooms" ? val.totalCount : val.totalPrice;
+    return inp === "rooms" ? val?.totalCount : val?.totalPrice;
   };
   const checkErr = () => {
-    if (!error) {
+    if (!err) {
       setError("Error");
       setTimeout(() => {
         setError(null);
-      }, 5000);
+      }, 3000);
     }
   };
   const selectHandle = (roomType, index) => {
-    let val = rooms.roomDetails.filter((present) => present.id === roomType);
+    let val = rooms?.roomDetails?.filter((present) => present.id === roomType);
 
     return val[0].countArray[index];
   };
@@ -68,7 +74,7 @@ function IndHotel() {
           <div>
             <div>
               <div className="d-flex flex-column flex-sm-row">
-                <h4 className="flex-fill">{curHotel[0].title}</h4>
+                <h4 className="flex-fill">{curHotel[0]?.title}</h4>
                 <button
                   className="align-self-start"
                   style={{
@@ -90,7 +96,7 @@ function IndHotel() {
                 <span>
                   <FontAwesomeIcon icon={faLocationDot} className="me-1" />
                 </span>
-                {curHotel[0].location}
+                {curHotel[0]?.location}
               </p>
             </div>
             <div className="container d-none d-md-block">
@@ -265,7 +271,7 @@ function IndHotel() {
             </div>
             <div className="d-flex flex-column" id="hotelTable">
               <h3>Availability</h3>
-              {error && (
+              {err && (
                 <div className="alert alert-danger">
                   <strong>Reservation Limit Reached</strong>
                 </div>
@@ -281,7 +287,7 @@ function IndHotel() {
                     </tr>
                   </thead>
                   <tbody>
-                    {curHotel[0].rooms.map((cur, i) => (
+                    {curHotel[0]?.rooms?.map((cur, i) => (
                       <React.Fragment key={i}>
                         <tr key={i + "_tablefirstrow"}>
                           <td rowSpan="2" className="h6 w-50">

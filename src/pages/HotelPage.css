@@ -11,6 +11,7 @@
 .sticky_style_search {
   position: sticky;
   top: 10px;
+  width: 30vw;
 }
 .searchHotel_button {
   background-color: #3c7be1;

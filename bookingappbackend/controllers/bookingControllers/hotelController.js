@@ -12,6 +12,7 @@ export const createHotel = async (req, res, next) => {
 export const getHotelById = async (req, res, next) => {
   try {
     const getHotel = await HotelSchema.findOne({ id: req.params.id });
+
     res.status(200).json(getHotel);
   } catch (err) {
     next(err);

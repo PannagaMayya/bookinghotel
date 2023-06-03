@@ -13,7 +13,7 @@ function ErrorPage() {
       }
     >
       <h1 className="text-danger">404 - Not Found</h1>
-      <p className="text-danger fs-6">Could not Identify the link:(</p>
+      <p className="text-danger fs-6">Could not Identify the link... :(</p>
       <Link to="/">Home</Link> | <Link to="/hotels">Hotel</Link>
     </div>
   );
